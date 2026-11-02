@@ -1,19 +1,21 @@
+# -*- coding: utf-8 -*-
+
 from odoo import models, fields, api
 
 class Sala(models.Model):
 
-    _name = 'RRHH_UPO.sala'
-    _description = 'sala'
+    _name = 'rrhh.upo.sala'
+    _description = 'Sala'
 
-    name = fields.Char(string='Nombre',required=True, help='Dame el nombre de la sala')
+    name = fields.Char(string='Nombre',required=True,size = 20, help='Rellene el nombre de la sala')
     edificio =fields.Integer('Edificio')
     planta = fields.Integer('Planta')
     direccion = fields.Integer('Dirección')
     aforo = fields.Integer('Aforo')
     superficie = fields.Float('Superficie (m^2)')
     altura = fields.Float('Altura (m)')
-    hora_apertura = fields.Datetime('Apertura', autodate = True)
-    hora_cierre = fields.Datetime('Cierre', autodate = True)
+    hora_apertura = fields.Float('Apertura')
+    hora_cierre = fields.Float('Cierre')
     estado = fields.Selection([
         ('disponible','Disponible'),
         ('ocupada','Ocupada'),

@@ -1,2 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rrhh__upo_rrhh__upo,rrhh__upo.rrhh__upo,model_rrhh__upo_rrhh__upo,base.group_user,1,1,1,1
+access_rrhh_upo_nomina,access_rrhh_upo_nomina,model_rrhh_upo_nomina,base.group_user,1,1,1,1
+access_rrhh_upo_tipo_contrato,access_rrhh_upo_tipo_contrato,model_rrhh_upo_tipo_contrato,base.group_user,1,1,1,1
+access_rrhh_upo_tipo_concepto,access_rrhh_upo_tipo_concepto,model_rrhh_upo_tipo_concepto,base.group_user,1,1,1,1
+access_rrhh_upo_concepto,access_rrhh_upo_concepto,model_rrhh_upo_concepto,base.group_user,1,1,1,1
+access_rrhh_upo_contrato,access_rrhh_upo_contrato,model_rrhh_upo_contrato,base.group_user,1,1,1,1

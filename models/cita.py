@@ -11,7 +11,7 @@ class Cita(models.Model):
     duracion = fields.Float('Duración (h)', default = 0.5)
     motivo = fields.Text('Motivo',required = True)
     fecha_hora_cita = fields.Datetime('Fecha y hora de la cita')
-    medio_concertada = fieds.Selection([
+    medio_concertada = fields.Selection([
         ('email','Email'),
         ('telefono','Teléfono'),
         ('presencial','Presencial'),

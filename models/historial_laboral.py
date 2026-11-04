@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, field, api
+from odoo import models, fields, api
 
 class Historial_laboral(models.Model):
     _name = 'rrhh_upo.historial.laboral'

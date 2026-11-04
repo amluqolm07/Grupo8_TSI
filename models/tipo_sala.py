@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Tipo_sala(models.Model):
 
-    _name = 'rrhh.upo.tipo.sala'
+    _name = 'rrhh_upo.tipo_sala'
     _description = 'Tipo de la sala'
 
     name = fields.Char(string='Nombre',required=True, size = 20, help='Rellene el nombre del tipo de sala')

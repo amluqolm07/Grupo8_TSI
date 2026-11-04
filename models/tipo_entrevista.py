@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Tipo_entrevista(models.Model):
 
-    _name = 'rrhh.upo.tipo.entrevista'
+    _name = 'rrhh_upo.tipo_entrevista'
     _description = 'Tipo de la entrevista'
 
     name = fields.Char(string='Nombre',required=True,  size = 20,elp='Rellene el nombre del tipo de la entrevista')

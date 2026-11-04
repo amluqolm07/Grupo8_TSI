@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Entrevista(models.Model):
 
-    _name = 'rrhh.upo.entrevista'
+    _name = 'rrhh_upo.entrevista'
     _description = 'Entrevista'
 
     name = fields.Datetime(string='Fecha y hora de inicio',required=True, help='Rellene su fecha y hora de inicio')
@@ -16,6 +16,6 @@ class Entrevista(models.Model):
         ('muy favorable','Muy favorable'),
         ('favorable','Favorable'),
         ('aceptable','Aceptable'),
-        ('no aceptable','No aceptable')
-        ('pendiente','Pendiente')
+        ('no aceptable','No aceptable'),
+        ('pendiente','Pendiente'),
     ],'Resultado')

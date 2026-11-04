@@ -4,14 +4,14 @@ from odoo import models, fields, api
 
 class Cita(models.Model):
 
-    _name = 'rrhh.upo.cita'
+    _name = 'rrhh_upo.cita'
     _description = 'Cita'
 
     name = fields.Char(string='id', size=7,required=True, help='Rellene el id de la cita (7 carácteres)')
     duracion = fields.Float('Duración (h)', default = 0.5)
     motivo = fields.Text('Motivo',required = True)
     fecha_hora_cita = fields.Datetime('Fecha y hora de la cita')
-    medio_concertada = fieds.Selection([
+    medio_concertada = fields.Selection([
         ('email','Email'),
         ('telefono','Teléfono'),
         ('presencial','Presencial'),

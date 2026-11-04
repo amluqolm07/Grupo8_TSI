@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, field, api
+from odoo import models, fields, api
 
 class Parte_horario(models.Model):
     _name = 'rrhh_upo.parte.horario'
@@ -8,7 +8,7 @@ class Parte_horario(models.Model):
 
     name = fields.Datetime(name='Fecha y hora de entrada',required=True,help='Fecha y hora en la que entró al puesto')
     metodo_validacion= fields.Selection([
-        ('firma','Firma digital'),
+        ('firma digital','Firma digital'),
         ('firma biometrica','Firma biométrica'),
         ('firma manuscrita','Firma manuscrita'),
     ],'Método de validación',required=True)

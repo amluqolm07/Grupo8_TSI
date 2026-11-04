@@ -4,12 +4,12 @@ from odoo import models, fields, api
 
 class Sesion(models.Model):
 
-    _name = 'rrhh.upo.sesion'
+    _name = 'rrhh_upo.sesion'
     _description = 'Sesion'
 
     name = fields.Datetime(string='Fecha y hora de inicio',required=True, help='Rellene su fecha y hora de inicio')
     duracion = fields.Float(string='Duración (h)', default = 1)
-    incidencias = fields.Text("Incidencias")
+    incidencias = fields.Text("Incidencias",size = 240)
     asistentes_previstos = fields.Integer("Asistentes previstos")
     asistentes_reales = fields.Integer("Asistentes reales")
     grabada = fields.Boolean('Sesion grabada', default=False)

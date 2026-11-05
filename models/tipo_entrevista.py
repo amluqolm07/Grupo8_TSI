@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Tipo_entrevista(models.Model):
 
@@ -21,3 +22,17 @@ class Tipo_entrevista(models.Model):
         ('telematico','Telemático'),
         ('presencial','Presencial'),
     ],'Formato')
+
+    #Duración no menor igual a 0
+    @api.constrains('duracion_estimada')
+    def _check_duracion_estimada(self):
+        for record in self:
+            if record.duracion_estimada <= 0:
+                raise ValidationError('La duración estimada debe ser un valor positivo')
+
+    #Personal no menor igual a 0
+    @api.constrains('personal_necesario')
+    def _check_personal_necesario(self):
+        for record in self:
+            if record.personal_necesario and record.personal_necesario <= 0:
+                raise ValidationError('Hace falta algún personal')

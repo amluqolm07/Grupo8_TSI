@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 class Tipo_sesion(models.Model):
 
@@ -16,3 +17,10 @@ class Tipo_sesion(models.Model):
         ('telematica','Telemática'),
         ('mixta','Mixta'),
     ],'Modalidad')
+
+    #Aforo mayor igual a 0
+    @api.constrains('aforo_recomendado')
+    def _check_aforo_recomendado(self):
+        for record in self:
+            if record.aforo_recomendado and record.aforo_recomendado <= 0:
+                raise ValidationError('El aforo recomendado debe ser un valor positivo')

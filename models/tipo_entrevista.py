@@ -9,30 +9,35 @@ class Tipo_entrevista(models.Model):
     _description = 'Tipo de la entrevista'
 
     name = fields.Char(string='Nombre',required=True,  size = 20,elp='Rellene el nombre del tipo de la entrevista')
-    descripcion = fields.Text('Descripcion',size = 240)
-    duracion_estimada = fields.Float('Duración estimada (h)', default = 0.6)
-    personal_necesario = fields.Integer('Personal necesario', help='Personal de la UPO que debe acudir a realizar la cita')
-    modalidad = fields.Selection([
+    sDescripcion = fields.Text('Descripcion',size = 240)
+    fDuracion_estimada = fields.Float('Duración estimada (h)', default = 0.6)
+    iPersonal_necesario = fields.Integer('Personal necesario', help='Personal de la UPO que debe acudir a realizar la cita')
+    sModalidad = fields.Selection([
            ('estructurada','Estructurada'),
            ('no estructurada','No estructurada'),
            ('semiestructurada','Semiestructurada'),
            ('por competencias','Por competencias'),
-       ],'Modalidad')
-    formato = fields.Selection([
+        ],'Modalidad')
+    sFormato = fields.Selection([
         ('telematico','Telemático'),
         ('presencial','Presencial'),
     ],'Formato')
 
+
+    entrevista_id = fields.One2many('rrhh_upo.entrevista',string='Entrevista')
+
     #Duración no menor igual a 0
-    @api.constrains('duracion_estimada')
+    @api.constrains('fDuracion_estimada')
     def _check_duracion_estimada(self):
         for record in self:
-            if record.duracion_estimada <= 0:
+            if record.fDuracion_estimada <= 0:
                 raise ValidationError('La duración estimada debe ser un valor positivo')
 
     #Personal no menor igual a 0
-    @api.constrains('personal_necesario')
+    @api.constrains('iPersonal_necesario')
     def _check_personal_necesario(self):
         for record in self:
-            if record.personal_necesario and record.personal_necesario <= 0:
+            if record.iPersonal_necesario and record.iPersonal_necesario <= 0:
                 raise ValidationError('Hace falta algún personal')
+
+    _sql_constraints = [('Tipo_entrevista_unico', 'unique(name)', 'El nombre debe ser unico')]        

@@ -9,8 +9,3 @@ tipo_cita_manager,tipo_cita_manager,model_rrhh_upo_tipo_cita,group_rrhh_manager,
 tipo_entrevista_manager,tipo_cita_manager,model_rrhh_upo_tipo_entrevista,group_rrhh_manager,1,1,1,1
 tipo_sala_manager,tipo_sala_manager,model_rrhh_upo_tipo_sala,group_rrhh_manager,1,1,1,1
 tipo_sesion_manager,tipo_sesion_manager,model_rrhh_upo_tipo_sesion,group_rrhh_manager,1,1,1,1
-access_rrhh_upo_nomina,access_rrhh_upo_nomina,model_rrhh_upo_nomina,base.group_user,1,1,1,1
-access_rrhh_upo_tipo_contrato,access_rrhh_upo_tipo_contrato,model_rrhh_upo_tipo_contrato,base.group_user,1,1,1,1
-access_rrhh_upo_tipo_concepto,access_rrhh_upo_tipo_concepto,model_rrhh_upo_tipo_concepto,base.group_user,1,1,1,1
-access_rrhh_upo_concepto,access_rrhh_upo_concepto,model_rrhh_upo_concepto,base.group_user,1,1,1,1
-access_rrhh_upo_contrato,access_rrhh_upo_contrato,model_rrhh_upo_contrato,base.group_user,1,1,1,1

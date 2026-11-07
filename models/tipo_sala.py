@@ -9,8 +9,12 @@ class Tipo_sala(models.Model):
     _description = 'Tipo de la sala'
 
     name = fields.Char(string='Nombre',required=True, size = 20, help='Rellene el nombre del tipo de sala')
-    normativa = fields.Text('Normativa',size = 240)
-    acceso_internet = fields.Boolean('Acceso a internet', default=False)
-    digitalizada = fields.Boolean('Digitalizada', default=False)
-    climatizada = fields.Boolean('Climatizada', default=False)
-    adaptada = fields.Boolean('Adaptada', default=False)
+    sNormativa = fields.Text('Normativa',size = 240)
+    bAcceso_internet = fields.Boolean('Acceso a internet', default=False)
+    bDigitalizada = fields.Boolean('Digitalizada', default=False)
+    bClimatizada = fields.Boolean('Climatizada', default=False)
+    bAdaptada = fields.Boolean('Adaptada', default=False)
+
+    sala_id = fields.One2many('rrhh_upo.sala',string='Sala')
+
+    _sql_constraints = [('Tipo_sala_unico', 'unique(name)', 'El nombre debe ser unico')]

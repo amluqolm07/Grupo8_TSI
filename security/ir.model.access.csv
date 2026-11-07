@@ -1,6 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rrhh_upo_nomina,access_rrhh_upo_nomina,model_rrhh_upo_nomina,base.group_user,1,1,1,1
-access_rrhh_upo_tipo_contrato,access_rrhh_upo_tipo_contrato,model_rrhh_upo_tipo_contrato,base.group_user,1,1,1,1
-access_rrhh_upo_tipo_concepto,access_rrhh_upo_tipo_concepto,model_rrhh_upo_tipo_concepto,base.group_user,1,1,1,1
-access_rrhh_upo_concepto,access_rrhh_upo_concepto,model_rrhh_upo_concepto,base.group_user,1,1,1,1
-access_rrhh_upo_contrato,access_rrhh_upo_contrato,model_rrhh_upo_contrato,base.group_user,1,1,1,1
+nomina_manager,nomina_manager,model_rrhh_upo_nomina,group_rrhh_manager,1,1,1,1
+contrato_manager,contrato_manager,model_rrhh_upo_contrato,group_rrhh_manager,1,1,1,1
+tipo_contrato_manager,tipo_contrato_manager,model_rrhh_upo_tipo_contrato,group_rrhh_manager,1,1,1,1
+concepto_manager,concepto_manager,model_rrhh_upo_concepto,group_rrhh_manager,1,1,1,1
+tipo_concepto_manager,tipo_concepto_manager,model_rrhh_upo_tipo_concepto,group_rrhh_manager,1,1,1,1
+stand_manager,stand_manager,model_rrhh_upo_stand,group_rrhh_manager,1,1,1,1
+evento_manager,evento_manager,model_rrhh_upo_evento,group_rrhh_manager,1,1,1,1
+oferta_empleo_manager,oferta_empleo_manager,model_rrhh_upo_oferta_empleo,group_rrhh_manager,1,1,1,1
+jornada_manager,jornada_manager,model_rrhh_upo_jornada,group_rrhh_manager,1,1,1,1
+horario_manager,horario_manager,model_rrhh_upo_horario,group_rrhh_manager,1,1,1,1

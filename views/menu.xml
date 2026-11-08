@@ -1,2 +1,10 @@
 <odoo>
+    <menuitem name="RRHH UPO" id="main_rrhh_upo_menu" groups="group_rrhh_manager"/>
+    <menuitem name="Gestión" id="rrhh_upo_menu" groups="group_rrhh_manager" parent="main_rrhh_upo_menu"/>
+
+    <menuitem name="Citas" id="cita_menu" parent="rrhh_upo_menu" groups="group_rrhh_manager" action="action_rrhh_upo_cita"/>
+    <menuitem name="Entrevistas" id="entrevista_menu" parent="rrhh_upo_menu" groups="group_rrhh_manager" action="action_rrhh_upo_entrevista"/>
+    <menuitem name="Sesiones" id="sesion_menu" parent="rrhh_upo_menu" groups="group_rrhh_manager" action="action_rrhh_upo_sesion"/>
+    <menuitem name="Historial Laboral" id="historial_laboral_menu" parent="rrhh_upo_menu" groups="group_rrhh_manager" action="action_rrhh_upo_historial_laboral"/>
+    <menuitem name="Salas" id="sala_menu" parent="rrhh_upo_menu" groups="group_rrhh_manager" action="action_rrhh_upo_sala"/>
 </odoo>

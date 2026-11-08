@@ -1,4 +1,4 @@
-id,name,dFecha_hora_entrada,sMetodo_validacion,bValidado,dFecha_hora_salida,sIncidencias,fHoras_trabajadas,empleado_id/id,contrato_id/id
-parte_0,"Parte 0","2025-09-20 08:00:00",firma digital,True,"2025-09-20 16:00:00",Ninguna,8.0,emp_1,cont_1
-parte_1,"Parte 1","2025-09-21 09:00:00",firma biometrica,False,"2025-09-21 17:30:00","Olvido de fichaje de salida registrado tarde",8.5,emp_2,cont_2
-parte_2,"Parte 2","2025-09-22 08:30:00",firma manuscrita,True,"2025-09-22 14:30:00","Salida anticipada justificada",6.0,emp_3,cont_3
+id,name,dFecha_hora_entrada,sMetodo_validacion,bValidado,dFecha_hora_salida,sIncidencias,fHoras_trabajadas
+parte_0,"Parte 0","2025-09-20 08:00:00",firma digital,True,"2025-09-20 16:00:00",Ninguna,8.0
+parte_1,"Parte 1","2025-09-21 09:00:00",firma biometrica,False,"2025-09-21 17:30:00","Olvido de fichaje de salida registrado tarde",8.5
+parte_2,"Parte 2","2025-09-22 08:30:00",firma manuscrita,True,"2025-09-22 14:30:00","Salida anticipada justificada",6.0

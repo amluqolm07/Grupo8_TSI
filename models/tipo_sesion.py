@@ -18,7 +18,7 @@ class Tipo_sesion(models.Model):
         ('mixta','Mixta'),
     ],'Modalidad')
 
-    sesion_id=fields.One2many('rrhh_upo.sesion',string='Sesion')
+    #sesion_id=fields.One2many('rrhh_upo.sesion',string='Sesion')
 
     #Aforo mayor igual a 0
     @api.constrains('iAforo_recomendado')

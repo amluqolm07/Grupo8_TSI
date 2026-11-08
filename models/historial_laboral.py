@@ -4,7 +4,7 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 class Historial_laboral(models.Model):
-    _name = 'rrhh_upo.historial.laboral'
+    _name = 'rrhh_upo.historial_laboral'
     _description = 'Historial laboral'
    
     name = fields.Char(string='id', size=7, required=True, help='Rellene el id del historial laboral (7 carácteres)')
@@ -24,7 +24,7 @@ class Historial_laboral(models.Model):
 
     iDias_en_puesto = fields.Integer('Días en el puesto', compute='_calcular_dias_en_puesto', stored=True)
 
-    empleado_id = fields.Many2one('rrhh_upo.empleado',string='Empleado')
+    #empleado_id = fields.Many2one('rrhh_upo.empleado',string='Empleado')
 
     # Días trabajados = fin - inicio
     @api.depends('dFecha_inicio', 'dFecha_fin')

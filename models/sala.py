@@ -24,11 +24,11 @@ class Sala(models.Model):
 
     fDimensiones = fields.Float('Dimensiones (m^3)',compute='_calcular_dimensiones', stored=True)
 
-    cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
-    entrevista_id = fields.One2many('rrhh_upo.cita',string='Entrevista')
-    tipo_sala_id = fields.Many2one('rrhh_upo.tipo_sala',string='Tipo sala')
-    edificio_id = fields.Many2one('rrhh_upo.edificio',string='Edificio')
-    sesion_id = fields.One2many('rrhh_upo.sesion',string='Sesion')
+    #cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
+    #entrevista_id = fields.One2many('rrhh_upo.cita',string='Entrevista')
+    #tipo_sala_id = fields.Many2one('rrhh_upo.tipo_sala',string='Tipo sala')
+    #edificio_id = fields.Many2one('rrhh_upo.edificio',string='Edificio')
+    #sesion_id = fields.One2many('rrhh_upo.sesion',string='Sesion')
 
 
 

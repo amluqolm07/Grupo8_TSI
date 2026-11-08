@@ -28,8 +28,8 @@ class Cita(models.Model):
 
     dFecha_hora_fin = fields.Datetime(string='Fecha y hora fin', compute='_calcular_fecha_hora_fin', stored=True)
 
-    empleado_ids = fields.Many2many('rrhh_upo.empleado', string='Empleado')
-    tipo_cita_id = fields.Many2one('rrhh_upo.tipo_cita', string='Tipo de la cita')
+    #empleado_ids = fields.Many2many('rrhh_upo.empleado', string='Empleado')
+    #tipo_cita_id = fields.Many2one('rrhh_upo.tipo_cita', string='Tipo de la cita')
     sala_id = fields.Many2one('rrhh_upo.sala', string='Sala')
 
     # Final = inicio + duración
@@ -69,6 +69,7 @@ class Cita(models.Model):
             if record.sEstado == 'finalizada' and not record.sConclusion:
                 raise ValidationError('Debe rellenar la conclusión si la cita está finalizada')
 
+    '''
     # No coinciden en la misma sala en el mismo intervalo de tiempo entrevista, cita o sesión
     @api.constrains('sala_id', 'dFecha_hora_cita', 'dFecha_hora_fin')
     def _check_solapamiento_sala(self):
@@ -90,5 +91,5 @@ class Cita(models.Model):
                     ('dFecha_hora_inicio', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_final', '>', record.dFecha_hora_cita),
                 ])
-
+    '''
     _sql_constraints = [('Cita_unica', 'unique(name)', 'El id de la cita debe ser unico')]

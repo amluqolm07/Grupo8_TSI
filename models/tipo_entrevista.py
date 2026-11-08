@@ -24,7 +24,7 @@ class Tipo_entrevista(models.Model):
     ],'Formato')
 
 
-    entrevista_id = fields.One2many('rrhh_upo.entrevista',string='Entrevista')
+    #entrevista_id = fields.One2many('rrhh_upo.entrevista',string='Entrevista')
 
     #Duración no menor igual a 0
     @api.constrains('fDuracion_estimada')

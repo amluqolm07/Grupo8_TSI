@@ -1,4 +1,4 @@
-id,name,dFecha_hora_inicio,fDuracion,sIncidencias,iAsistentes_previstos,iAsistentes_reales,bGrabada,sEstado,sala_id/id,pdi_id/id,asignatura_id/id,tipo_sesion_id/id
-ses_0,"Ses 0","2025-09-20 09:00:00",1.0,"Sin incidencias",30,28,True,finalizada,sala_1,pdi_1,asig_1,tipo_teoria
-ses_1,"Ses 1","2025-09-20 11:00:00",2.0,"Retraso de 10 minutos del ponente",25,25,False,finalizada,sala_2,pdi_2,asig_2,tipo_practica
-ses_2,"Ses 2","2025-09-21 09:00:00",1.5,"Problemas con el proyector",40,35,True,pendiente,sala_1,pdi_1,asig_3,tipo_seminario
+id,name,dFecha_hora_inicio,fDuracion,sIncidencias,iAsistentes_previstos,iAsistentes_reales,bGrabada,sEstado
+ses_0,"Ses 0","2025-09-20 09:00:00",1.0,"Sin incidencias",30,28,True,finalizada
+ses_1,"Ses 1","2025-09-20 11:00:00",2.0,"Retraso de 10 minutos del ponente",25,25,False,finalizada
+ses_2,"Ses 2","2025-09-21 09:00:00",1.5,"Problemas con el proyector",40,35,True,pendiente

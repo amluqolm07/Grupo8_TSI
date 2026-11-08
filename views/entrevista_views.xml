@@ -1,0 +1,48 @@
+<odoo>
+    <record id="entrevista_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.entrevista.form</field>
+        <field name="model">rrhh_upo.entrevista</field>
+        <field name="arch" type="xml">
+            <form string="Entrevista">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dFecha_hora_inicio"/>
+                        <field name="fDuracion"/>
+                        <field name="sResultado"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="entrevista_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.entrevista.list</field>
+        <field name="model">rrhh_upo.entrevista</field>
+        <field name="arch" type="xml">
+            <list string="Entrevistas">
+                <field name="name"/>
+                <field name="dFecha_hora_inicio"/>
+                <field name="fDuracion"/>
+                <field name="sResultado"/>
+            </list>
+        </field>
+    </record>
+
+    <!--CALENDARIO-->
+    <record id="entrevista_calendar_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.entrevista.calendar</field>
+        <field name="model">rrhh_upo.entrevista</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Entrevistas" date_start="dFecha_hora_inicio" color="sResultado" mode="month">
+                <field name="name"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_entrevista" model="ir.actions.act_window">
+        <field name="name">Entrevistas</field>
+        <field name="res_model">rrhh_upo.entrevista</field>
+        <field name="view_mode">list,form,calendar</field>
+    </record>
+</odoo>

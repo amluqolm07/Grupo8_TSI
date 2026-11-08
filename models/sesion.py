@@ -25,10 +25,10 @@ class Sesion(models.Model):
     dFecha_hora_final = fields.Datetime('Fecha y hora en la que acaba la sesion', compute='_calcular_fecha_hora_final', stored=True)
 
     sala_id = fields.Many2one('rrhh_upo.sala',string='Sala')
-    pdi_id = fields.Many2one('rrhh_upo.pdi',string='PDI')
-    asignatura_id = fields.Many2one('rrhh_upo.asignatura',string='Asignatura')
-    alumno_ids = fields.Many2many('rrhh_upo.alumno',string='Alumno')
-    tipo_sesion_id = fields.Many2one('rrhh_upo.tipo_sesion',string='Tipo de la sesion')
+    #pdi_id = fields.Many2one('rrhh_upo.pdi',string='PDI')
+    #asignatura_id = fields.Many2one('rrhh_upo.asignatura',string='Asignatura')
+    #alumno_ids = fields.Many2many('rrhh_upo.alumno',string='Alumno')
+    #tipo_sesion_id = fields.Many2one('rrhh_upo.tipo_sesion',string='Tipo de la sesion')
 
     #Final = inicio + duración
     @api.depends('dFecha_hora_inicio','fDuracion')
@@ -61,7 +61,7 @@ class Sesion(models.Model):
         for record in self:
             if record.sEstado == 'finalizada' and record.iAsistentes_reales is None:
                 raise ValidationError('Debe indicar el número de asistentes reales si la sesión ha finalizado')
-
+    '''
     # No coinciden en la misma sala en el mismo intervalo de tiempo entrevista, cita o sesión
     @api.constrains('sala_id', 'dFecha_hora_inicio', 'dFecha_hora_final')
     def _check_solapamiento_sala(self):
@@ -86,6 +86,6 @@ class Sesion(models.Model):
 
                 if sesiones_existentes or citas_existentes or entrevistas_existentes:
                     raise ValidationError('La sala ya esta ocupada en ese intervalo de tiempo')
+    '''
 
-
-        _sql_constraints = [('Sesion_unica', 'unique(name)', 'El id de la sesion debe ser unico')]
+    _sql_constraints = [('Sesion_unica', 'unique(name)', 'El id de la sesion debe ser unico')]

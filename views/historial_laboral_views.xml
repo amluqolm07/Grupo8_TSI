@@ -1,0 +1,50 @@
+<odoo>
+    <record id="historial_laboral_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.historial_laboral.form</field>
+        <field name="model">rrhh_upo.historial_laboral</field>
+        <field name="arch" type="xml">
+            <form string="Historial Laboral">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dFecha_inicio"/>
+                        <field name="dFecha_fin"/>
+                        <field name="sPuesto"/>
+                        <field name="fSueldo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="historial_laboral_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.historial_laboral.list</field>
+        <field name="model">rrhh_upo.historial_laboral</field>
+        <field name="arch" type="xml">
+            <list string="Historial Laboral">
+                <field name="name"/>
+                <field name="dFecha_inicio"/>
+                <field name="sPuesto"/>
+                <field name="fSueldo"/>
+            </list>
+        </field>
+    </record>
+
+    <!--GRAFO-->
+    <record id="historial_laboral_graph_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.historial_laboral.graph</field>
+        <field name="model">rrhh_upo.historial_laboral</field>
+        <field name="arch" type="xml">
+            <graph string="Sueldo por Puesto" type="bar">
+                <field name="sPuesto" type="row"/>
+                <field name="fSueldo" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_historial_laboral" model="ir.actions.act_window">
+        <field name="name">Historial Laboral</field>
+        <field name="res_model">rrhh_upo.historial_laboral</field>
+        <field name="view_mode">list,form,graph</field>
+    </record>
+</odoo>

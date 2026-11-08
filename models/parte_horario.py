@@ -4,7 +4,7 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 class Parte_horario(models.Model):
-    _name = 'rrhh_upo.parte.horario'
+    _name = 'rrhh_upo.parte_horario'
     _description = 'Parte horario'
     
     name = fields.Char(string='id', size=7, required=True, help='Rellene el id del parte horario (7 carácteres)')
@@ -20,9 +20,9 @@ class Parte_horario(models.Model):
 
     fHoras_trabajadas = fields.Float('Horas trabajadas',compute='calcular_horas_trabajadas', stored=True)
 
-    empleado_id = fields.Many2one('rrhh_upo.empleado',String='Empleado')
-    ausencia_id = fields.One2many('rrhh_upo.ausencia',string='Ausencia')
-    contrato_id = fields.Many2one('rrhh_upo.contrato',string='Contrato')
+    #empleado_id = fields.Many2one('rrhh_upo.empleado',String='Empleado')
+    #ausencia_id = fields.One2many('rrhh_upo.ausencia',string='Ausencia')
+    #contrato_id = fields.Many2one('rrhh_upo.contrato',string='Contrato')
 
     #Horas trabajadas = salida-entrada (segundos a horas)
     @api.depends('dFecha_hora_entrada','dFecha_hora_salida')

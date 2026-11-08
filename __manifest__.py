@@ -25,30 +25,18 @@
         'security/ir.model.access.csv',
         #Vistas
         'views/views.xml',
-        'views/templates.xml',
-        'views/menu.xml',
         'views/cita_views.xml',
         'views/entrevista_views.xml',
         'views/historial_laboral_views.xml',
-        'views/parte_horario_views.xml',
         'views/sala_views.xml',
         'views/sesion_views.xml',
-        'views/tipo_cita_views.xml',
-        'views/tipo_entrevista_views.xml',
-        'views/tipo_sala_views.xml',
-        'views/tipo_sesion_views.xml',
+        'views/menu.xml',
         #Demos por aqui, importa el orden
         'demo/rrhh_upo.cita.csv',
         'demo/rrhh_upo.entrevista.csv',
         'demo/rrhh_upo.sala.csv',
         'demo/rrhh_upo.sesion.csv',
-        'demo/rrhh_upo.tipo_cita.csv',
-        'demo/rrhh_upo.tipo_entrevista.csv',
-        'demo/rrhh_upo.tipo_sala.csv',
-        'demo/rrhh_upo.tipo_sesion.csv',
-        #Empleado
         'demo/rrhh_upo.historial_laboral.csv',
-        'demo/rrhh_upo.parte_horario.csv',
     ],
     
     # only loaded in demonstration mode

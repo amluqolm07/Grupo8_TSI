@@ -19,7 +19,7 @@ class Tipo_cita(models.Model):
         ('mixto','Mixto'),
     ],'Formato')
 
-    cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
+    #cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
 
     #No dura menos o 0 horas
     @api.constrains('fDuracion_estimada')

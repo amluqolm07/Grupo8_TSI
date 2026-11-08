@@ -1,0 +1,71 @@
+<odoo>
+    <!-- Vista Form -->
+    <record id="cita_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.cita.form</field>
+        <field name="model">rrhh_upo.cita</field>
+        <field name="arch" type="xml">
+            <form string="Cita">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="dFecha_hora_cita"/>
+                        <field name="fDuracion"/>
+                        <field name="sMotivo"/>
+                        <field name="sEstado"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista List (Tree) -->
+    <record id="cita_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.cita.list</field>
+        <field name="model">rrhh_upo.cita</field>
+        <field name="arch" type="xml">
+            <list string="Citas">
+                <field name="name"/>
+                <field name="dFecha_hora_cita"/>
+                <field name="fDuracion"/>
+                <field name="sEstado"/>
+            </list>
+        </field>
+    </record>
+
+    <!--Calendar-->
+    <record id="cita_calendar_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.cita.calendar</field>
+        <field name="model">rrhh_upo.cita</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Citas" date_start="dFecha_hora_cita" color="sEstado" mode="month">
+                <field name="name"/>
+                <field name="sMotivo"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!--Search-->
+    <record id="cita_search_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.cita.search</field>
+        <field name="model">rrhh_upo.cita</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Citas">
+                <field name="name"/>
+                <field name="sMotivo"/>
+                <separator/>
+                <filter name="estado_pendiente" string="Pendientes" domain="[('sEstado', '=', 'pendiente')]"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_by_estado" string="Estado" context="{'group_by': 'sEstado'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción de Ventana enlazando la vista search -->
+    <record id="action_rrhh_upo_cita" model="ir.actions.act_window">
+        <field name="name">Citas</field>
+        <field name="res_model">rrhh_upo.cita</field>
+        <field name="view_mode">list,form,calendar</field>
+        <field name="search_view_id" ref="cita_search_view"/>
+    </record>
+</odoo>

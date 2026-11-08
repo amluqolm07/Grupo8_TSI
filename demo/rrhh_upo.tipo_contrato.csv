@@ -1,0 +1,5 @@
+id,name,sNombre,sDescripcion,iDuracion
+tipo_contrato_0,indefinido,"Indefinido ordinario","Contrato sin fecha de fin",0
+tipo_contrato_1,temporal,"Temporal por obra","Contrato de duración determinada",12
+tipo_contrato_2,formacion,"Formación dual","Contrato formativo con estudios",24
+tipo_contrato_3,practicas,"Prácticas profesionales","Contrato en prácticas",6

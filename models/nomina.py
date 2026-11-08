@@ -17,9 +17,9 @@ class Nomina(models.Model):
         ('julio', 'Julio'), ('agosto', 'Agosto'), ('septiembre', 'Septiembre'),
         ('octubre', 'Octubre'), ('noviembre', 'Noviembre'), ('diciembre', 'Diciembre'),
     ], string='Mes',required=True)
-    iPeriodoAnio = fields.Integer(string='Año', size=4, required=True, help="Introduce el periodo del año")
+    iPeriodoAnio = fields.Integer(string='Año',required=True, help="Introduce el periodo del año")
     fSalarioBruto = fields.Float(string='Salario bruto', required=True, help="Introduce el salario bruto")
-    dFechaEmision = fields.DateTime(string='Fecha de emisión', required=True, help="Introduce la fecha de emisión")
+    dFechaEmision = fields.Datetime(string='Fecha de emisión', required=True, help="Introduce la fecha de emisión")
     #Autocalculado
     fTotalDeducciones = fields.Float(string='Total deducciones', compute='calcular_importe',store=True)
     #Autocalculado
@@ -32,7 +32,7 @@ class Nomina(models.Model):
     concepto_ids = fields.One2many('rrhh_upo.concepto','nomina_id','Concepto')
     
     
-    _sql_constraints =[('nomina_unica','UNIQUE(name)','Ya existe una nomina para ese contrato')]
+    _sql_constraints =[('nomina_unica','UNIQUE(name)','Este contrato ya tiene una nómina con esa fecha de emisión')]
 
     #Validación: El periodo del año esta entre el año que se fundo la UPO (1997) y el año actual
     @api.constrains('iPeriodoAnio')
@@ -84,10 +84,10 @@ class Nomina(models.Model):
             record.fSalarioNeto = record.fSalarioBruto + fTotal_extras_temporal - fTotal_deducciones_temporal  
 
     #Calculo: A partir de la fecha de emisión y la referencia del contrato genera un nombre para la nomina
-    @api.depends('contrato_id.sReferencia', 'dFechaEmision')
+    @api.depends('contrato_id.name', 'dFechaEmision')
     def generador_nombre_nomina(self):
         for record in self:
-            referencia = record.contrato_id.sReferencia 
+            referencia = record.contrato_id.name 
             fecha = record.dFechaEmision
             record.name = f'{referencia} - {fecha}'
 

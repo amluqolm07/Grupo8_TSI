@@ -1,0 +1,75 @@
+<odoo>
+  <record id="concepto_form_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.concepto.form</field>
+    <field name="model">rrhh_upo.concepto</field>
+    <field name="arch" type="xml">
+      <form string="Concepto">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="sNombre" />
+            <field name="sDescripcion" />
+            <field name="fImporteFijo" />
+            <field name="fImporte" />
+            <field name="tipo_concepto_id" widget="many2one" />
+            <field name="nomina_id" widget="many2one" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="concepto_list_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.concepto.list</field>
+    <field name="model">rrhh_upo.concepto</field>
+    <field name="arch" type="xml">
+      <list string="Conceptos">
+        <field name="name" />
+        <field name="sNombre" />
+        <field name="sDescripcion" />
+        <field name="fImporteFijo" />
+        <field name="fImporte" />
+        <field name="tipo_concepto_id" widget="many2one" />
+        <field name="nomina_id" widget="many2one" />
+      </list>
+    </field>
+  </record>
+
+<record id="concepto_search_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.concepto.search</field>
+    <field name="model">rrhh_upo.concepto</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="sNombre" />
+        <filter name="filtro_deducciones" string="Deducciones" domain="[('tipo_concepto_id.bEsDeduccion','=',True)]" />
+        <filter name="filtro_extras" string="Extras" domain="[('tipo_concepto_id.bEsDeduccion','=',False)]" />
+        <filter name="filtro_importe_alto" string="Importe superior a 500" domain="[('fImporte','&gt;',500)]" />
+        <group expand="0" string="Agrupar por...">
+            <filter name="group_by_tipo" string="Tipo de concepto" context="{'group_by':'tipo_concepto_id'}" />
+            <filter name="group_by_nomina" string="Nómina" context="{'group_by':'nomina_id'}" />
+        </group>
+      </search>
+    </field>
+</record>
+
+<record id="concepto_graph_view" model="ir.ui.view">
+  <field name="name">rrhh_upo.concepto.graph</field>
+  <field name="model">rrhh_upo.concepto</field>
+  <field name="arch" type="xml">
+    <graph string="Importes por tipo" type="bar">
+      <field name="tipo_concepto_id" type="row" />
+      <field name="fImporte" type="measure" />
+    </graph>
+  </field>
+</record>
+
+  <record id="concepto_list_action" model="ir.actions.act_window">
+    <field name="name">Concepto</field>
+    <field name="res_model">rrhh_upo.concepto</field>
+    <field name="search_view_id" ref="concepto_search_view" />
+    <field name="view_mode">list,form,graph</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Añade el primer concepto</p>
+    </field>
+  </record>
+</odoo>

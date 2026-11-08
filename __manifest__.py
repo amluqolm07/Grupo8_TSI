@@ -25,8 +25,19 @@
         'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/tipo_contrato_views.xml',
+        'views/contrato_views.xml',
+        'views/nomina_views.xml',
+        'views/concepto_views.xml',
+        'views/tipo_concepto_views.xml'
         'views/menu.xml',
         #Demos por aqui
+        'demo/rrhh_upo.tipo_concepto.csv',
+        'demo/rrhh_upo.tipo_contrato.csv',
+        'demo/rrhh_upo.solicitud.csv',
+        'demo/rrhh_upo.contrato.csv',
+        'demo/rrhh_upo.nomina.csv',
+        'demo/rrhh_upo.concepto.csv',
     ],
     
     # only loaded in demonstration mode

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from datetime import date
+
 
 class Contrato(models.Model):
     _name = 'rrhh_upo.contrato'
@@ -10,12 +10,12 @@ class Contrato(models.Model):
 
     
     name = fields.Char(string='Referencia', size=10, required=True, help='Introduce una referencia identificativa para el contrato')
-    dFechaInicio = fields.DateTime(string='Fecha de inicio', required=True, help='Introduce la fecha de inicio del contrato')
+    dFechaInicio = fields.Datetime(string='Fecha de inicio', required=True, help='Introduce la fecha de inicio del contrato')
     #Un contrato indefinido no tiene fecha de fin
-    dFechaFin = fields.DateTime(string='Fecha de fin',help='Introduce la fecha de finalización del contrato (Un contrato indefinido no tiene fecha de fin)')
+    dFechaFin = fields.Datetime(string='Fecha de fin',help='Introduce la fecha de finalización del contrato (Un contrato indefinido no tiene fecha de fin)')
     #True = activo y False = finalizado (nos referimos al estado del contrato)
     bActivo = fields.Boolean(string='Activo', default=True)
-    fSalarioBase = fields.Float(string='Salario base', size=6,required=True, help='Introduce el salario base del contrato')
+    fSalarioBase = fields.Float(string='Salario base',required=True, help='Introduce el salario base del contrato')
 
     tipo_contrato_id = fields.Many2one('rrhh_upo.tipo_contrato','Tipo de contrato',required=True)
     nomina_ids = fields.One2many('rrhh_upo.nomina','contrato_id','Nómina')
@@ -45,9 +45,9 @@ class Contrato(models.Model):
         for record in self:
             if record.dFechaFin and record.dFechaFin <= record.dFechaInicio:
                 raise models.ValidationError('La fecha de fin debe ser posterior a la de inicio')
-            if record.tipo_contrato_id.sTipo == 'indefinido' and record.dFechaFin:
+            if record.tipo_contrato_id.name == 'indefinido' and record.dFechaFin:
                 raise models.ValidationError('Un contrato indefinido no tiene fecha de fin')
-            if record.tipo_contrato_id.sTipo != 'indefinido' and not record.dFechaFin:
+            if record.tipo_contrato_id.name != 'indefinido' and not record.dFechaFin:
                 raise models.ValidationError('Un contrato no indefinido necesita fecha de fin')
 
     #Validación: Un contrato con fecha de fin ya caducada no puede seguir activo

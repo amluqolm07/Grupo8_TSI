@@ -22,7 +22,7 @@ class Concepto(models.Model):
     nomina_id = fields.Many2one('rrhh_upo.nomina','Nómina',required=True)
     
     
-    _sql_constraints =[('concepto_unico', 'UNIQUE(name)', 'Ya existe un concepto con ese nombre')]
+    _sql_constraints =[('concepto_unico', 'UNIQUE(name)', 'Esta nómina ya tiene un concepto con ese nombre')]
 
 
     #Cálculo: Si el tipo de concepto tiene porcentaje, el importe es ese porcentaje del salario bruto. Si no, es el importe fijo

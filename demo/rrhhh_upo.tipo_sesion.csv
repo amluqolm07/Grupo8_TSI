@@ -1,0 +1,4 @@
+id,name,sDescripcion,bAsistencia_obligatoria,iAforo_recomendado,sModalidad
+tipo_sesion_teoria,Teoria,"Sesion magistral de transmision de conceptos teoricos.",True,60,presencial
+tipo_sesion_practica,Practica,"Sesion orientada a la aplicacion practica y resolucion de casos.",True,30,presencial
+tipo_sesion_seminario,Seminario,"Seminario interactivo de debate y exposicion.",False,25,mixta

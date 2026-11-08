@@ -26,9 +26,11 @@ class Entrevista(models.Model):
 
     dFecha_hora_fin = fields.Datetime('Fecha y hora fin', compute='_calcular_fecha_hora_fin', stored=True)
 
-    personal_tecnico_ids = fields.Many2many('rrhh_upo.personal_tecnico',string='Personal técnico')
-    empleado_rrhh_ids = fields.Many2many('rrhh_upo.empleado_rrhh',string='Empleado de recursos humanos')
-    empleado_externo_ids = fields.Many2many('rrhh_upo.empleado_externo',string='Empleado externo')
+    #Problemas para arrancar el odoo
+    #personal_tecnico_ids = fields.Many2many('rrhh_upo.personal_tecnico',string='Personal técnico')
+    #empleado_rrhh_ids = fields.Many2many('rrhh_upo.empleado_rrhh',string='Empleado de recursos humanos')
+    #empleado_externo_ids = fields.Many2many('rrhh_upo.empleado_externo',string='Empleado externo')
+    
     sala_id = fields.Many2one('rrhh_upo.sala', string='Sala')
     solicitud_id = fields.Many2one('rrhh_upo.solicitud', string='Solicitud de empleo')
     tipo_entrevista_id = fields.Many2one('rrhh_upo.tipo_entrevista',string='Tipo de la entrevista')
@@ -69,18 +71,18 @@ class Entrevista(models.Model):
         for record in self:
             if record.sala_id and record.dFecha_hora_inicio and record.dFecha_hora_fin:
                 entrevistas_existentes = self.search([
-                    ('sala_id', '=', record.sala_id.name),
+                    ('sala_id', '=', record.sala_id.id),
                     ('id', '!=', record.id),
                     ('dFecha_hora_inicio', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_fin', '>', record.dFecha_hora_inicio),
                 ])
                 citas_existentes = self.env['rrhh_upo.cita'].search([
-                    ('sala_id', '=', record.sala_id.name),
+                    ('sala_id', '=', record.sala_id.id),
                     ('dFecha_hora_cita', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_fin', '>', record.dFecha_hora_inicio),
                 ])
                 sesiones_existentes = self.env['rrhh_upo.sesion'].search([
-                    ('sala_id', '=', record.sala_id.name),
+                    ('sala_id', '=', record.sala_id.id),
                     ('dFecha_hora_inicio', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_final', '>', record.dFecha_hora_inicio),
                 ])

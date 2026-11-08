@@ -75,18 +75,18 @@ class Cita(models.Model):
         for record in self:
             if record.sala_id and record.dFecha_hora_cita and record.dFecha_hora_fin:
                 citas_existentes = self.search([
-                    ('sala_id', '=', record.sala_id.name),
+                    ('sala_id', '=', record.sala_id.id),
                     ('id', '!=', record.id),
                     ('dFecha_hora_cita', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_fin', '>', record.dFecha_hora_cita),
                 ])
                 entrevistas_existentes = self.env['rrhh_upo.entrevista'].search([
-                    ('sala_id', '=', record.sala_id.name),
+                    ('sala_id', '=', record.sala_id.id),
                     ('dFecha_hora_inicio', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_fin', '>', record.dFecha_hora_cita),
                 ])
                 sesiones_existentes = self.env['rrhh_upo.sesion'].search([
-                    ('sala_id', '=', record.sala_id.name),
+                    ('sala_id', '=', record.sala_id.id),
                     ('dFecha_hora_inicio', '<', record.dFecha_hora_fin),
                     ('dFecha_hora_final', '>', record.dFecha_hora_cita),
                 ])

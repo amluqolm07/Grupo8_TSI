@@ -1,0 +1,4 @@
+id,name,sDescripcion,fDuracion_estimada,bReagendable,iMargen_antelacion,sFormato
+tipo_cita_1,"Evaluacion anual","Evaluacion anual de desempeno del empleado",1.0,True,2,presencial
+tipo_cita_2,"Revision nomina","Revision de conceptos de nomina y retenciones",0.5,False,1,telematico
+tipo_cita_3,"Entrevista inicial","Primera toma de contacto y presentacion",0.75,True,3,mixto

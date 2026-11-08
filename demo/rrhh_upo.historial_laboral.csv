@@ -1,0 +1,4 @@
+id,name,dFecha_inicio,sPuesto,sRol,fSueldo,dFecha_fin,sMotivo_cambio,empleado_id/id
+hist_0,"Hist 0",2023-01-01,personal tecnico,Junior,25000.0,2023-12-31,"Promocion interna a otro departamento",emp_1
+hist_1,"Hist 1",2022-06-15,pdi,Titular,42000.0,2023-06-15,"Fin de contrato temporal",emp_2
+hist_2,"Hist 2",2024-03-01,empleado externo,Consultor,30000.0,,,emp_3

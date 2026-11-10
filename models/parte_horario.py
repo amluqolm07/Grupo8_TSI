@@ -20,9 +20,11 @@ class Parte_horario(models.Model):
 
     fHoras_trabajadas = fields.Float('Horas trabajadas',compute='calcular_horas_trabajadas', stored=True)
 
-    #empleado_id = fields.Many2one('rrhh_upo.empleado',String='Empleado')
-    #ausencia_id = fields.One2many('rrhh_upo.ausencia',string='Ausencia')
-    #contrato_id = fields.Many2one('rrhh_upo.contrato',string='Contrato')
+    empleado_id = fields.Many2one('rrhh_upo.empleado',String='Empleado')
+    ausencia_id = fields.One2many('rrhh_upo.ausencia',string='Ausencia')
+    contrato_id = fields.Many2one('rrhh_upo.contrato',string='Contrato')
+
+    _sql_constraints = [('Parte_horario_unico', 'unique(name)', 'El id del parte horario debe ser unico')]
 
     #Horas trabajadas = salida-entrada (segundos a horas)
     @api.depends('dFecha_hora_entrada','dFecha_hora_salida')
@@ -41,4 +43,4 @@ class Parte_horario(models.Model):
             if record.dFecha_hora_salida and record.dFecha_hora_entrada and record.dFecha_hora_salida < record.dFecha_hora_entrada:
                 raise ValidationError('La fecha y hora de salida no puede ser anterior a la de entrada')
 
-    _sql_constraints = [('Parte_horario_unico', 'unique(name)', 'El id del parte horario debe ser unico')]
+   

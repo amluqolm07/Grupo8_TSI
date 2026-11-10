@@ -18,7 +18,9 @@ class Tipo_sesion(models.Model):
         ('mixta','Mixta'),
     ],'Modalidad')
 
-    #sesion_id=fields.One2many('rrhh_upo.sesion',string='Sesion')
+    sesion_id=fields.One2many('rrhh_upo.sesion',string='Sesion')
+
+    _sql_constraints = [('Tipo_sesion_unico', 'unique(name)', 'El nombre debe ser unico')]
 
     #Aforo mayor igual a 0
     @api.constrains('iAforo_recomendado')
@@ -27,4 +29,4 @@ class Tipo_sesion(models.Model):
             if record.iAforo_recomendado and record.iAforo_recomendado <= 0:
                 raise ValidationError('El aforo recomendado debe ser un valor positivo')
 
-    _sql_constraints = [('Tipo_sesion_unico', 'unique(name)', 'El nombre debe ser unico')]
+    

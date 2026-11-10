@@ -26,14 +26,15 @@ class Entrevista(models.Model):
 
     dFecha_hora_fin = fields.Datetime('Fecha y hora fin', compute='_calcular_fecha_hora_fin', stored=True)
 
-    #Problemas para arrancar el odoo
-    #personal_tecnico_ids = fields.Many2many('rrhh_upo.personal_tecnico',string='Personal técnico')
-    #empleado_rrhh_ids = fields.Many2many('rrhh_upo.empleado_rrhh',string='Empleado de recursos humanos')
-    #empleado_externo_ids = fields.Many2many('rrhh_upo.empleado_externo',string='Empleado externo')
     
-    #sala_id = fields.Many2one('rrhh_upo.sala', string='Sala')
-    #solicitud_id = fields.Many2one('rrhh_upo.solicitud', string='Solicitud de empleo')
-    #tipo_entrevista_id = fields.Many2one('rrhh_upo.tipo_entrevista',string='Tipo de la entrevista')
+    personal_tecnico_ids = fields.Many2many('rrhh_upo.personal_tecnico',string='Personal técnico')
+    empleado_rrhh_ids = fields.Many2many('rrhh_upo.empleado_rrhh',string='Empleado de recursos humanos')
+    empleado_externo_ids = fields.Many2many('rrhh_upo.empleado_externo',string='Empleado externo')
+    sala_id = fields.Many2one('rrhh_upo.sala', string='Sala')
+    solicitud_id = fields.Many2one('rrhh_upo.solicitud', string='Solicitud de empleo')
+    tipo_entrevista_id = fields.Many2one('rrhh_upo.tipo_entrevista',string='Tipo de la entrevista')
+
+    _sql_constraints = [('Entrevista_unica', 'unique(name)', 'El id de la entrevista debe ser unico')]
 
     #Final = inicio + duración
     @api.depends('dFecha_hora_inicio', 'fDuracion')
@@ -65,7 +66,6 @@ class Entrevista(models.Model):
             if record.sResultado and record.sResultado != 'pendiente' and not record.sApuntes:
                 raise ValidationError('Debe incluir apuntes si ya se ha obtenido resultado')
 
-    '''
     # No coinciden en la misma sala en el mismo intervalo de tiempo entrevista, cita o sesión
     @api.constrains('sala_id', 'dFecha_hora_inicio', 'dFecha_hora_fin')
     def _check_solapamiento_sala(self):
@@ -90,5 +90,5 @@ class Entrevista(models.Model):
 
                 if entrevistas_existentes or citas_existentes or sesiones_existentes:
                     raise ValidationError('La sala ya esta ocupada en ese intervalo de tiempo')
-    '''
-    _sql_constraints = [('Entrevista_unica', 'unique(name)', 'El id de la entrevista debe ser unico')]
+
+    

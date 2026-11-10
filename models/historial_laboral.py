@@ -24,8 +24,10 @@ class Historial_laboral(models.Model):
 
     iDias_en_puesto = fields.Integer('Días en el puesto', compute='_calcular_dias_en_puesto', stored=True)
 
-    #empleado_id = fields.Many2one('rrhh_upo.empleado',string='Empleado')
+    empleado_id = fields.Many2one('rrhh_upo.empleado',string='Empleado')
 
+    _sql_constraints = [('Historial_laboral_unico', 'unique(name)', 'El id del historial laboral debe ser unico')]
+    
     # Días trabajados = fin - inicio
     @api.depends('dFecha_inicio', 'dFecha_fin')
     def _calcular_dias_en_puesto(self):
@@ -56,4 +58,4 @@ class Historial_laboral(models.Model):
             if record.dFecha_fin and not record.sMotivo_cambio:
                 raise ValidationError('Debe especificar el motivo del cambio si se ha indicado una fecha final en el puesto')
 
-        _sql_constraints = [('Historial_laboral_unico', 'unique(name)', 'El id del historial laboral debe ser unico')]
+    

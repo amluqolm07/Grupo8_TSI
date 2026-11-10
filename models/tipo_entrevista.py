@@ -24,7 +24,9 @@ class Tipo_entrevista(models.Model):
     ],'Formato')
 
 
-    #entrevista_id = fields.One2many('rrhh_upo.entrevista',string='Entrevista')
+    entrevista_id = fields.One2many('rrhh_upo.entrevista',string='Entrevista')
+
+    _sql_constraints = [('Tipo_entrevista_unico', 'unique(name)', 'El nombre debe ser unico')]        
 
     #Duración no menor igual a 0
     @api.constrains('fDuracion_estimada')
@@ -40,4 +42,4 @@ class Tipo_entrevista(models.Model):
             if record.iPersonal_necesario and record.iPersonal_necesario <= 0:
                 raise ValidationError('Hace falta algún personal')
 
-    _sql_constraints = [('Tipo_entrevista_unico', 'unique(name)', 'El nombre debe ser unico')]        
+    

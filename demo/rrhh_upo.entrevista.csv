@@ -1,4 +1,4 @@
-id,name,dFecha_hora_inicio,fDuracion,sInformación_previa,sApuntes,dFecha_hora_agendada,sResultado
-ent_0,"Ent 0","2025-09-20 09:00:00",0.6,"CV enfocado en desarrollo backend","Buen dominio de Python y bases de datos.","2025-09-18 08:00:00",favorable
-ent_1,"Ent 1","2025-09-20 11:00:00",1.0,"Experiencia previa en gestión de equipos","Muy buena capacidad de liderazgo.","2025-09-19 09:15:00",muy favorable
-ent_2,"Ent 2","2025-09-21 09:00:00",1.5,"Perfil técnico especializado en Odoo","Conocimientos avanzados pero falta experiencia en despliegue.","2025-09-20 11:00:00",aceptable
+id,name,dFecha_hora_inicio,fDuracion,sInformación_previa,sApuntes,dFecha_hora_agendada,sResultado,sala_id/id,solicitud_id/id,tipo_entrevista_id/id
+ent_0,"Ent 0","2025-09-20 09:00:00",0.6,"CV enfocado en desarrollo backend","Buen dominio de Python y bases de datos.","2025-09-18 08:00:00",favorable,sala_1,sol_1,tipo_tech
+ent_1,"Ent 1","2025-09-20 11:00:00",1.0,"Experiencia previa en gestión de equipos","Muy buena capacidad de liderazgo.","2025-09-19 09:15:00",muy favorable,sala_2,sol_2,tipo_rrhh
+ent_2,"Ent 2","2025-09-21 09:00:00",1.5,"Perfil técnico especializado en Odoo","Conocimientos avanzados pero falta experiencia en despliegue.","2025-09-20 11:00:00",aceptable,sala_1,sol_3,tipo_tech

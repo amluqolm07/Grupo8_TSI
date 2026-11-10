@@ -15,6 +15,6 @@ class Tipo_sala(models.Model):
     bClimatizada = fields.Boolean('Climatizada', default=False)
     bAdaptada = fields.Boolean('Adaptada', default=False)
 
-    #sala_id = fields.One2many('rrhh_upo.sala',string='Sala')
+    sala_id = fields.One2many('rrhh_upo.sala',string='Sala')
 
     _sql_constraints = [('Tipo_sala_unico', 'unique(name)', 'El nombre debe ser unico')]

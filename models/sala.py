@@ -24,13 +24,15 @@ class Sala(models.Model):
 
     fDimensiones = fields.Float('Dimensiones (m^3)',compute='_calcular_dimensiones', stored=True)
 
-    #cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
-    #entrevista_id = fields.One2many('rrhh_upo.cita',string='Entrevista')
-    #tipo_sala_id = fields.Many2one('rrhh_upo.tipo_sala',string='Tipo sala')
-    #edificio_id = fields.Many2one('rrhh_upo.edificio',string='Edificio')
-    #sesion_id = fields.One2many('rrhh_upo.sesion',string='Sesion')
+    cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
+    entrevista_id = fields.One2many('rrhh_upo.cita',string='Entrevista')
+    tipo_sala_id = fields.Many2one('rrhh_upo.tipo_sala',string='Tipo sala')
+    edificio_id = fields.Many2one('rrhh_upo.edificio',string='Edificio')
+    sesion_id = fields.One2many('rrhh_upo.sesion',string='Sesion')
 
-
+    #Dirección de la sala única
+    _sql_constraints = [('Sala_unica', 'unique(name)', 'El id de la sala debe ser unico'),
+                            ('Dirección_unica', 'unique(iNumero, iPlanta, edificio_id)', 'Ya existe una sala con esa dirección exacta')]
 
     #Dimensiones = superficie * altura
     @api.depends('fSuperficie','fAltura')
@@ -61,6 +63,4 @@ class Sala(models.Model):
             if record.fHora_cierre and (record.fHora_cierre < 0 or record.fHora_cierre > 24):
                 raise ValidationError('La hora de cierre debe estar entre 0 y 24')
 
-    #Dirección de la sala única
-    _sql_constraints = [('Sala_unica', 'unique(name)', 'El id de la sala debe ser unico'),
-                        ('Dirección_unica', 'unique(iNumero, iPlanta, edificio_id)', 'Ya existe una sala con esa dirección exacta')]
+    

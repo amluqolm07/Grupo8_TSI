@@ -19,7 +19,9 @@ class Tipo_cita(models.Model):
         ('mixto','Mixto'),
     ],'Formato')
 
-    #cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
+    cita_id = fields.One2many('rrhh_upo.cita',string='Cita')
+
+    _sql_constraints = [('tipo_cita_unico', 'unique(name)', 'El nombre debe ser unico')]
 
     #No dura menos o 0 horas
     @api.constrains('fDuracion_estimada')
@@ -35,4 +37,4 @@ class Tipo_cita(models.Model):
             if record.iMargen_antelacion < 0:
                 raise ValidationError('El margen de antelación no puede ser negativo')
 
-    _sql_constraints = [('tipo_cita_unico', 'unique(name)', 'El nombre debe ser unico')]
+    

@@ -18,4 +18,4 @@ class Asignaturas(models.Model):
     grado_id = fields.Many2one("rrhh_upo.grado", string="Grado")
     
     matricula_contiene_asignatura_ids = fields.One2many('rrhh_upo.matricula_contiene_asignatura', 'asignatura_id', 'Matriculas que contienen la asignatura')
-    sesion_ids = fields.One2many('rrhh_upo.sesion', 'asignatura_id', 'Sesiones de la asignatura')
+    # sesion_ids = fields.One2many('rrhh_upo.sesion', 'asignatura_id', 'Sesiones de la asignatura')

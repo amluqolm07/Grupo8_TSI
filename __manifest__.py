@@ -23,8 +23,16 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
+        'views/asignatura_views.xml',
+        'views/departamento_views.xml',
+        'views/equipo_investigacion_views.xml',
+        'views/expediente_views.xml',
+        'views/financiacion_views.xml',
+        'views/grado_views.xml',
+        'views/investigacion_views.xml',
+        'views/matricula_views.xml',
+        'views/solicitud_views.xml',
+        'views/tipo_investigacion_views.xml',
         'views/menu.xml',
         #Demos por aqui
     ],

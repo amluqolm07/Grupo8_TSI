@@ -1,0 +1,42 @@
+<odoo>
+    <record id="rrhh_upo_asignatura_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.asignatura.list</field>
+        <field name="model">rrhh_upo.asignatura</field>
+        <field name="arch" type="xml">
+            <list string="list_string">
+                <field name="name"/>
+                <field name="creditos"/>
+                <field name="curso"/>
+                <field name="tipo"/>
+                <field name="nombre"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rrhh_upo_asignatura_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.asignatura.form</field>
+        <field name="model">rrhh_upo.asignatura</field>
+        <field name="arch" type="xml">
+            <form string="form_string">
+                <sheet layout="auto">
+                    <group>
+                        <field name="name"/>
+                        <field name="nombre"/>
+                        <field name="creditos"/>
+                        <field name="curso"/>
+                        <field name="tipo"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="asignatura_list_action" model="ir.actions.act_windows">
+        <field name="name">Asignaturas</field>
+        <field name="res_model">rrhh_upo.asignatura</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face"> Añade la primera asignatura </p>
+        </field>
+    </record>
+</odoo>

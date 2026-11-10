@@ -1,11 +1,11 @@
 <odoo>
-    <--!- Top menu item -->
+    <!-- Top menu item -->
     <menuitem name="RRHH_UPO" id="main_rrhh_upo_menu" groups="group_rrhh_upo_manager"/>
 
-    <--!- Menu categories -->
+    <!-- Menu categories -->
     <menuitem name="RRHH_UPO" id="rrhh_upo_menu" groups="group_rrhh_upo_manager" parent="main_rrhh_upo_menu"/>
 
-    <--!- actions -->
+    <!-- actions -->
     <menuitem name="Asignaturas" id="asignaturas_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="asignatura_list_action"/>
     <menuitem name="Departamentos" id="departamentos_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="departamento_list_action"/>
     <menuitem name="Equipos de investigación" id="equipos_investigacion_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="equipo_investigacion_list_action"/>

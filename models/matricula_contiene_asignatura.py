@@ -8,5 +8,5 @@ class MatriculaContieneAsignatura(models.Model):
 
     nota = fields.Float(string='Nota') 
     
-    asignatura_id = Many2one("rrhh_upo.asignatura", string="Asignatura")
-    matricula_id = Many2one("rrhh_upo.matricula", string="Matrícula")
+    asignatura_id = fields.Many2one("rrhh_upo.asignatura", string="Asignatura")
+    matricula_id = fields.Many2one("rrhh_upo.matricula", string="Matrícula")

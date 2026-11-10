@@ -10,4 +10,4 @@ from . import investigacion
 from . import matricula
 from . import solicitud
 from . import tipo_investigacion
- 
+from . import matricula_contiene_asignatura

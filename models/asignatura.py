@@ -15,4 +15,4 @@ class Asignaturas(models.Model):
                              ('basica', 'Basica')], required=True)
     nombre = fields.Char(string='Nombre', help = "Nombre de la asignatura", required=True)
     
-    
+    matricula_contiene_asignatura_ids = fields.One2many('rrhh_upo.matricula_contiene_asignatura', 'asignatura_id', 'Matriculas que contienen la asignatura')

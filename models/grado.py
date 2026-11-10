@@ -15,5 +15,7 @@ class Grado(models.Model):
                              ('salud', 'Salud'),
                              ('sociales', 'Sociales')], required=True)
     
+    asignatura_ids = fields.One2many('rrhh_upo.asignatura', 'grado_id', 'Asignaturas del grado')
+    
     
     

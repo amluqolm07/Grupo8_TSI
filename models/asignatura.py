@@ -14,6 +14,9 @@ class Asignaturas(models.Model):
                              ('optativa', 'Optativa'),
                              ('basica', 'Basica')], required=True)
     nombre = fields.Char(string='Nombre', help = "Nombre de la asignatura", required=True)
+    cuatrimestre = fields.Selection([('1', 'Primer cuatrimestre'), 
+                                   ('2', 'Segundo cuatrimestre'),
+                                   ('0', 'Anual')], required=True)
     
     grado_id = fields.Many2one("rrhh_upo.grado", string="Grado")
     

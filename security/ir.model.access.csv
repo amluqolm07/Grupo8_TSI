@@ -1,2 +1,11 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rrhh__upo_rrhh__upo,rrhh__upo.rrhh__upo,model_rrhh__upo_rrhh__upo,base.group_user,1,1,1,1
+asignatura_manager,asignatura_manager,model_rrhh_upo_asignatura,group_rrhh_upo_manager,1,1,1,1
+departamento_manager,departamento_manager,model_rrhh_upo_departamento,group_rrhh_upo_manager,1,1,1,1
+equipo_investigacion_manager,equipo_investigacion_manager,model_rrhh_upo_equipo_investigacion,group_rrhh_upo_manager,1,1,1,1
+expediente_manager,expediente_manager,model_rrhh_upo_expediente,group_rrhh_upo_manager,1,1,1,1
+financiacion_manager,financiacion_manager,model_rrhh_upo_financiacion,group_rrhh_upo_manager,1,1,1,1
+grado_manager,grado_manager,model_rrhh_upo_grado,group_rrhh_upo_manager,1,1,1,1
+investigacion_manager,investigacion_manager,model_rrhh_upo_investigacion,group_rrhh_upo_manager,1,1,1,1
+matricula_manager,matricula_manager,model_rrhh_upo_matricula,group_rrhh_upo_manager,1,1,1,1
+solicitud_manager,solicitud_manager,model_rrhh_upo_solicitud,group_rrhh_upo_manager,1,1,1,1
+tipo_investigacion_manager,tipo_investigacion_manager,model_rrhh_upo_tipo_investigacion,group_rrhh_upo_manager,1,1,1,1

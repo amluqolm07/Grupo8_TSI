@@ -1,0 +1,5 @@
+<odoo>
+    <record id="group_rrhh_upo_manager" model="res.groups">
+        <field name="name">RRHH UPO Manager</field>
+    </record>
+</odoo>

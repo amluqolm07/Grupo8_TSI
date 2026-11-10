@@ -10,4 +10,4 @@ class Equipo_Investigacion(models.Model):
     name = fields.Char(string='Equipo', help = "Equipo de investigación", required=True)
     especialidad = fields.Char(string='Especialidad', required=True)
     
-    equipo_investigacion_compone_departamento_ids = fields.One2many('rrhh_upo.equipo_investigacion_compone_departamento', 'equipo_investigacion_id', 'Departamentos del equipo de investigación')
+    departamento_ids = fields.Many2many('rrhh_upo.departamento', String='Departamentos')

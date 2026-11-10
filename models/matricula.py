@@ -7,7 +7,7 @@ class Matricula(models.Model):
     _name = 'rrhh_upo.matricula'
     _description = 'Matrícula'
     
-    name = fields.String(string='Curso académico', help = "Curso academico", required=True)
+    name = fields.Char(string='Curso académico', help = "Curso academico", required=True)
     fecha_matricula = fields.Datetime(string='Fecha de matrícula', help = "Fecha de matrícula del estudiante", required=True)
     # Añadir creditos matriculados que es un atributo calculado que suma los creditos de las asignaturas matriculadas
     

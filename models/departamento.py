@@ -13,8 +13,7 @@ class Departamento(models.Model):
     
     grado_id = fields.Many2one('rrhh_upo.grado', string='Grado', required=True)
     # edificio_id = fields.Many2one('rrhh_upo.edificio', string='Edificio', required=True)
-    
+    equipo_investigacion_ids = fields.Many2many('rrhh_upo.equipo_investigacion', string='Equipos de investigación')    
     
     telefono_ids = fields.One2many('rrhh_upo.telefonos_departamentos', 'departamento_id', 'Teléfonos del departamento')
-    equipo_investigacion_compone_departamento_ids = fields.One2many('rrhh_upo.equipo_investigacion_compone_departamento', 'departamento_id', 'Equipos de investigación del departamento')
     

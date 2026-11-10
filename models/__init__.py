@@ -11,4 +11,4 @@ from . import matricula
 from . import solicitud
 from . import tipo_investigacion
 from . import matricula_contiene_asignatura
-from . import equipo_investigacion_compone_departamento
+from . import telefonos_departamentos

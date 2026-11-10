@@ -23,7 +23,7 @@
         </field>
     </record>
 
-    <record id="matricula_list_action" model="ir.actions.act_windows">
+    <record id="matricula_list_action" model="ir.actions.act_window">
         <field name="name">Matriculas</field>
         <field name="res_model">rrhh_upo.matricula</field>
         <field name="view_mode">list,form</field>

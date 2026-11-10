@@ -27,7 +27,7 @@
         </field>
     </record>
 
-    <record id="grado_list_action" model="ir.actions.act_windows">
+    <record id="grado_list_action" model="ir.actions.act_window">
         <field name="name">Grados</field>
         <field name="res_model">rrhh_upo.grado</field>
         <field name="view_mode">list,form</field>

@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Departamento(models.Model):
     
-    _name = 'grupo8_tsi.departamento'
+    _name = 'rrhh_upo.departamento'
     _description = 'Departamento'
     
     name = fields.Char(string='Nombre', help = "Nombre del departamento", required=True)

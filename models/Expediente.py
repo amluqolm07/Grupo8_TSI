@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Expediente(models.Model):
     
-    _name = 'grupo8_tsi.expediente'
+    _name = 'rrhh_upo.expediente'
     _description = 'Expediente'
     
     name = fields.Date(string='Fecha de apertura', help = "Fecha de apertura del expediente", required=True)

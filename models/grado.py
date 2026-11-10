@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Grado(models.Model):
     
-    _name = 'grupo8_tsi.grado'
+    _name = 'rrhh_upo.grado'
     _description = 'Grado'
     
     name = fields.Char(string='ID', help = "ID del grado", required=True)

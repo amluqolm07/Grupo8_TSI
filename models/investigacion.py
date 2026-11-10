@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Investigacion(models.Model):
     
-    _name = 'grupo8_tsi.investigacion'
+    _name = 'rrhh_upo.investigacion'
     _description = 'Investigación'
     
     name = fields.Char(string='Nombre', help = "Nombre de la investigación", required=True)

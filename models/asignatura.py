@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Asignaturas(models.Model):
     
-    _name = 'grupo8_tsi.asignatura'
+    _name = 'rrhh_upo.asignatura'
     _description = 'Asignaturas'
     
     name = fields.Char(string='ID', help = "ID de la asignatura", required=True)

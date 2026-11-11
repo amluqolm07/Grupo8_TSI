@@ -1,41 +1,21 @@
 <odoo>
     <!-- Top menu item -->
-    <menuitem name="RRHH_UPO" id="main_rrhh_upo_menu" groups="group_rrhh_upo_manager"/>
+  <!--<menuitem name="Gym" id="main_gym_menu" groups="group_gym_manager"/>-->
 
-    <!-- Menu categories -->
-    <menuitem name="RRHH_UPO" id="rrhh_upo_menu" groups="group_rrhh_upo_manager" parent="main_rrhh_upo_menu"/>
-    <menuitem name="Solicitudes" id="solicitudes_menu" parent="main_rrhh_upo_menu" groups="group_rrhh_upo_manager" action="solicitud_list_action"/>
-    <menuitem name="Grados" id="grados_menu" parent="main_rrhh_upo_menu" groups="group_rrhh_upo_manager" action="grado_list_action"/>
+  <!-- menu categories -->
+  <!--<menuitem name="Gym" id="gym_menu" groups="group_gym_manager" parent="main_gym_menu"/>-->
 
-    <!-- actions de RRHH_UPO-->
-    <menuitem name="Solicitudes" id="solicitudes2_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="solicitud_list_action"/>
-    <menuitem name="Grados" id="grados2_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="grado_list_action"/>
-    
+  <!-- actions -->
+  <!--<menuitem name="Classes" id="classes_menu" parent="gym_menu" groups="group_gym_manager" action="classes_list_action"/>-->
+  <!--<menuitem name="Users" id="users_menu" parent="gym_menu" groups="group_gym_manager" action="users_list_action"/>-->
+  <!--<menuitem name="Instructores" id="instructores_menu" parent="gym_menu" groups="group_gym_manager" action="instructores_list_action"/>-->
 
-    <!-- actions de solicitudes-->
+  <menuitem name="RRHH UPO" id="main_rrhh_menu" groups="group_rrhh_manager"/>
+  <menuitem name="RRHH" id="rrhh_menu" groups="group_rrhh_manager" parent="main_rrhh_menu"/>
+  <menuitem name="Tipos de contrato" id="tipo_contrato_menu" parent="rrhh_menu" groups="group_rrhh_manager" action="tipo_contrato_list_action"/>
+  <menuitem name="Contratos" id="contrato_menu" parent="rrhh_menu" groups="group_rrhh_manager" action="contrato_list_action"/>
+  <menuitem name="Nóminas" id="nomina_menu" parent="rrhh_menu" groups="group_rrhh_manager" action="nomina_list_action"/>
+  <menuitem name="Conceptos" id="concepto_menu" parent="rrhh_menu" groups="group_rrhh_manager" action="concepto_list_action"/>
+  <menuitem name="Tipos de concepto" id="tipo_concepto_menu" parent="rrhh_menu" groups="group_rrhh_manager" action="tipo_concepto_list_action"/>
 
-
-    <!-- actions de grados-->
-    <menuitem name="Departamentos" id="departamentos2_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="departamento_list_action"/>
-    
-    <!-- actions de departamentos-->
-    <menuitem name="Departamentos" id="departamentos_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="departamento_list_action"/>
-    <menuitem name="Investigaciones" id="investigaciones2_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="investigacion_list_action"/>
-
-    <!-- actions de Investigaciones-->
-    <menuitem name="Investigaciones" id="investigaciones_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="investigacion_list_action"/>
-    
-    <menuitem name="Tipos de investigacion" id="tipos_investigacion_menu" parent="investigaciones_menu" groups="group_rrhh_upo_manager" action="tipo_investigacion_list_action"/>
-    <menuitem name="Equipos de investigación" id="equipos_investigacion_menu" parent="investigaciones_menu" groups="group_rrhh_upo_manager" action="equipo_investigacion_list_action"/>
-    <menuitem name="Financiaciones" id="financiaciones_menu" parent="investigaciones_menu" groups="group_rrhh_upo_manager" action="financiacion_list_action"/>
-    
-    
-    <menuitem name="Matriculas" id="matriculas2_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="matricula_list_action"/>
-    <!-- actions de Matriculas -->
-    <menuitem name="Matriculas" id="matriculas_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="matricula_list_action"/>
-    
-    <menuitem name="Asignaturas" id="asignaturas_menu" parent="matriculas_menu" groups="group_rrhh_upo_manager" action="asignatura_list_action"/>
-    <menuitem name="Expedientes" id="expedientes_menu" parent="matriculas_menu" groups="group_rrhh_upo_manager" action="expediente_list_action"/>
-
-    
 </odoo>

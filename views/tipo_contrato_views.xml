@@ -1,0 +1,59 @@
+<odoo>
+  <record id="tipo_contrato_form_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.tipo_contrato.form</field>
+    <field name="model">rrhh_upo.tipo_contrato</field>
+    <field name="arch" type="xml">
+      <form string="Tipo de contrato">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="sNombre" />
+            <field name="sDescripcion" />
+            <field name="iDuracion" />
+            <field name="contrato_ids" widget="one2many" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="tipo_contrato_list_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.tipo_contrato.list</field>
+    <field name="model">rrhh_upo.tipo_contrato</field>
+    <field name="arch" type="xml">
+      <list string="Tipos de contrato">
+        <field name="name" />
+        <field name="sNombre" />
+        <field name="sDescripcion" />
+        <field name="iDuracion" />
+        <field name="contrato_ids" widget="one2many"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="tipo_contrato_search_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.tipo_contrato.search</field>
+    <field name="model">rrhh_upo.tipo_contrato</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="sNombre" />
+        <filter name="filtro_con_contratos" string="Con contratos" domain="[('contrato_ids','!=',False)]" />
+        <filter name="filtro_formativos" string="Formación o prácticas" domain="['|',('name','=','formacion'),('name','=','practicas')]" />
+        <filter name="filtro_temporal_corto" string="Temporales de hasta 6 meses" domain="[('name','=','temporal'),('iDuracion','&lt;=',6)]" />
+        <group expand="0" string="Agrupar por...">
+            <filter name="group_by_tipo" string="Tipo" context="{'group_by':'name'}" />
+        </group>
+      </search>
+    </field>
+  </record>
+
+  <record id="tipo_contrato_list_action" model="ir.actions.act_window">
+    <field name="name">Tipo de Contrato</field>
+    <field name="res_model">rrhh_upo.tipo_contrato</field>
+    <field name="search_view_id" ref="tipo_contrato_search_view" />
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Añade el primer tipo de contrato</p>
+    </field>
+  </record>
+</odoo>

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "RRHH_UPO",
+    'name': "RRHH UPO",
 
     'summary': "Gestion del modulo de Recursos Humanos para la UPO",
 
@@ -33,8 +33,21 @@
         'views/matricula_views.xml',
         'views/solicitud_views.xml',
         'views/tipo_investigacion_views.xml',
+        'views/views.xml',
+        'views/templates.xml',
+        'views/tipo_contrato_views.xml',
+        'views/contrato_views.xml',
+        'views/nomina_views.xml',
+        'views/concepto_views.xml',
+        'views/tipo_concepto_views.xml'
         'views/menu.xml',
         #Demos por aqui
+        'demo/rrhh_upo.tipo_concepto.csv',
+        'demo/rrhh_upo.tipo_contrato.csv',
+        'demo/rrhh_upo.solicitud.csv',
+        'demo/rrhh_upo.contrato.csv',
+        'demo/rrhh_upo.nomina.csv',
+        'demo/rrhh_upo.concepto.csv',
     ],
     
     # only loaded in demonstration mode

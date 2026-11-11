@@ -1,0 +1,63 @@
+<odoo>
+  <record id="nomina_form_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.nomina.form</field>
+    <field name="model">rrhh_upo.nomina</field>
+    <field name="arch" type="xml">
+      <form string="Nomina">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="sPeriodoMes" />
+            <field name="iPeriodoAnio" />
+            <field name="fSalarioBruto" />
+            <field name="dFechaEmision" />
+            <field name="fTotalDeducciones" />
+            <field name="fSalarioNeto" />
+            <field name="bEmitida" />
+            <field name="contrato_id" widget="many2one" />
+            <field name="concepto_ids" widget="one2many" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="nomina_list_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.nomina.list</field>
+    <field name="model">rrhh_upo.nomina</field>
+    <field name="arch" type="xml">
+      <list string="Nóminas">
+        <field name="name" />
+            <field name="sPeriodoMes" />
+            <field name="iPeriodoAnio" />
+            <field name="fSalarioBruto" />
+            <field name="dFechaEmision" />
+            <field name="fTotalDeducciones" />
+            <field name="fSalarioNeto" />
+            <field name="bEmitida" />
+            <field name="contrato_id" widget="many2one" />
+      </list>
+    </field>
+  </record>
+
+  <record id="nomina_graph_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.nomina.graph</field>
+    <field name="model">rrhh_upo.nomina</field>
+    <field name="arch" type="xml">
+      <graph string="Nóminas" type="bar">
+        <field name="sPeriodoMes" type="row" />
+        <field name="fSalarioNeto" type="measure" />
+      </graph>
+    </field>
+  </record>
+
+  <record id="nomina_list_action" model="ir.actions.act_window">
+    <field name="name">Nómina</field>
+    <field name="res_model">rrhh_upo.nomina</field>
+    
+    <field name="view_mode">list,form,graph</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Añade la primera nómina</p>
+    </field>
+  </record>
+</odoo>

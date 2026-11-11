@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rrhh_upo_edificio_list" model="ir.ui.view">
+        <field name="name">rrhh_upo.edificio.list</field>
+        <field name="model">rrhh_upo.edificio</field>
+        <field name="arch" type="xml">
+            <list string="Edificios">
+                <field name="iNumero"/>
+                <field name="sUbicacion"/>
+                <field name="sTelefono"/>
+                <field name="iNumSalas"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rrhh_upo_edificio_form" model="ir.ui.view">
+        <field name="name">rrhh_upo.edificio.form</field>
+        <field name="model">rrhh_upo.edificio</field>
+        <field name="arch" type="xml">
+            <form string="Edificio">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sEdificio" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Datos del edificio">
+                            <field name="iNumero"/>
+                            <field name="sUbicacion"/>
+                        </group>
+                        <group string="Contacto">
+                            <field name="sTelefono"/>
+                            <field name="iNumSalas"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Salas">
+                            <field name="o2mSalas"/>
+                        </page>
+                        <page string="Departamentos">
+                            <field name="o2mDepartamentos"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_edificio" model="ir.actions.act_window">
+        <field name="name">Edificios</field>
+        <field name="res_model">rrhh_upo.edificio</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_rrhh_upo_edificios_root" name="Edificios" sequence="40"/>
+    <menuitem id="menu_rrhh_upo_edificio" name="Edificios"
+              parent="menu_rrhh_upo_edificios_root"
+              action="action_rrhh_upo_edificio" sequence="10"/>
+
+</odoo>

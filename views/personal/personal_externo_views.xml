@@ -1,0 +1,75 @@
+
+<odoo>
+    <record id='rrhh_upo_personal_externo_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_externo.form</field>
+        <field name='model'>rrhh_upo.personal_externo</field>
+        <field name='inherit_id' ref='rrhh_upo_empleado_form_view'/>
+        <field name='arch' type='xml'>
+            <xpath expr="//field[@name='sFuncion']" position='before'>
+                <group string='Información de Entidad Externa'>
+                    <field name='empleado_id' invisible='1'/>
+                    <field name='entidadExterna_id' widget='many2one'/>
+                    <field name='sServicio'/>
+                    <field name='dFechaFinAcceso'/>
+                    <field name='bPrevencionRiesgos'/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_personal_externo_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_externo.list</field>
+        <field name='model'>rrhh_upo.personal_externo</field>
+        <field name='arch' type='xml'>
+            <tree string='Personal Externo'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+                <field name='sSegundoApellido'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <field name='entidadExterna_id'/>
+                <field name='sServicio'/>
+                <field name='dFechaFinAcceso'/>
+                <field name='bPrevencionRiesgos'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_personal_externo_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_externo.search</field>
+        <field name='model'>rrhh_upo.personal_externo</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Personal Externo'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+                <field name='entidadExterna_id'/>
+
+                <separator/>
+                <field name='sServicio' string='Tipo de Servicio'/>
+                <filter name='search_limpieza' string='Limpieza' domain="[('sServicio', '=', 'limpieza')]"/>
+                <filter name='search_jardineria' string='Jardinería' domain="[('sServicio', '=', 'jardineria')]"/>
+                <filter name='search_seguridad' string='Seguridad' domain="[('sServicio', '=', 'seguridad')]"/>
+                <filter name='search_mantenimiento' string='Mantenimiento' domain="[('sServicio', '=', 'mantenimiento')]"/>
+                <filter name='search_catering' string='Catering' domain="[('sServicio', '=', 'catering')]"/>
+
+                <separator orientation='vertical'/>
+                <group expand='0' string='Agrupar Por'>
+                    <filter name='group_entidad'  string='Subcontrata' context="{'group_by' : 'entidadExterna_id'}"/>
+                    <filter name='group_servicio' string='Tipo de Servicio' context="{'group_by' : 'sServicio'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='personal_externo_list_action' model='ir.actions.act_window'>
+        <field name='name'>Personal Externo</field>
+        <field name='res_model'>rrhh_upo.personal_externo</field>
+        <field name='view_mode'>tree,form</field>
+        <field name='search_view_id' ref='rrhh_upo_personal_externo_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Empleado Externo</p>
+        </field>
+    </record>
+</odoo>

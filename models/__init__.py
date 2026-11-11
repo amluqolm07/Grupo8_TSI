@@ -13,3 +13,15 @@ from . import tipo_investigacion
 from . import matricula_contiene_asignatura
 from . import telefonos_departamentos
 from . import equipo_trabaja_investigacion
+#from . import models
+from . import nomina
+from . import contrato
+from . import concepto
+from . import evento
+from . import horario
+from . import jornada
+from . import oferta_empleo
+from . import stand
+from . import tipo_concepto
+from . import tipo_contrato
+

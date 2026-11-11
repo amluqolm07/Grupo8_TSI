@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rrhh_upo_inscripcion_curso_list" model="ir.ui.view">
+        <field name="name">rrhh_upo.inscripcion_curso.list</field>
+        <field name="model">rrhh_upo.inscripcion_curso</field>
+        <field name="arch" type="xml">
+            <list string="Inscripciones"
+                  decoration-success="sEstado == 'aceptado'"
+                  decoration-info="sEstado == 'preseleccionado'">
+                <field name="empleado_id"/>
+                <field name="curso_id"/>
+                <field name="dFechaInscripcion"/>
+                <field name="dFechaFin"/>
+                <field name="sEstado"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rrhh_upo_inscripcion_curso_form" model="ir.ui.view">
+        <field name="name">rrhh_upo.inscripcion_curso.form</field>
+        <field name="model">rrhh_upo.inscripcion_curso</field>
+        <field name="arch" type="xml">
+            <form string="Inscripción">
+                <header>
+                    <field name="sEstado" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sInscripcion" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Inscripción">
+                            <field name="empleado_id"/>
+                            <field name="curso_id"/>
+                        </group>
+                        <group string="Fechas">
+                            <field name="dFechaInscripcion"/>
+                            <field name="dFechaFin"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Pruebas">
+                            <field name="prueba_ids">
+                                <list>
+                                    <field name="sNombre"/>
+                                    <field name="dFechaRealizacion"/>
+                                    <field name="sResultado"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rrhh_upo_inscripcion_curso_calendar" model="ir.ui.view">
+        <field name="name">rrhh_upo.inscripcion_curso.calendar</field>
+        <field name="model">rrhh_upo.inscripcion_curso</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de inscripciones"
+                      date_start="dFechaInscripcion"
+                      date_stop="dFechaFin"
+                      color="sEstado"
+                      mode="month"
+                      quick_create="0">
+                <field name="empleado_id"/>
+                <field name="curso_id"/>
+                <field name="sEstado"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_inscripcion_curso" model="ir.actions.act_window">
+        <field name="name">Inscripciones</field>
+        <field name="res_model">rrhh_upo.inscripcion_curso</field>
+        <field name="view_mode">list,form,calendar</field>
+    </record>
+
+    <menuitem id="menu_rrhh_upo_inscripcion_curso" name="Inscripciones"
+              parent="menu_rrhh_upo_cursos_root"
+              action="action_rrhh_upo_inscripcion_curso" sequence="20"/>
+
+</odoo>

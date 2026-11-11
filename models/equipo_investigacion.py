@@ -14,3 +14,5 @@ class Equipo_Investigacion(models.Model):
     departamento_ids = fields.Many2many('rrhh_upo.departamento', String='Departamentos')
     
     equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', 'equipo_investigacion_id', string='Equipo de investigación')
+    
+    _sql_constraints = [('rrhh_upo_equipo_nombre_unique', 'UNIQUE(name)', 'Ya existe un equipo con ese nombre.')]

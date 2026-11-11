@@ -15,10 +15,19 @@
         <field name="model">rrhh_upo.financiacion</field>
         <field name="arch" type="xml">
             <form string="form_string">
+                <header>
+                    <button name="btn_submit_to_solicitada" type="object" string="Solicitada" class="oe_highlight"/>
+                    <button name="btn_submit_to_concedida" type="object" string="Concedida" class="oe_highlight"/>
+                    <button name="btn_submit_to_rechazada" type="object" string="Rechazado" class="oe_highlight"/>
+                    <button name="btn_submit_to_en_proceso" type="object" string="En Proceso" class="oe_highlight"/>
+                </header>
                 <sheet layout="auto">
                     <group>
                         <field name="name"/>
+                        <field name="estado" widget="statusbar"/>
+                        <field name="importe"/>
                         <field name="descripcion"/>
+                        <field name="investigacion_id" widget="many2one"/>
                     </group>
                 </sheet>
             </form>

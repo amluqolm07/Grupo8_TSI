@@ -19,16 +19,30 @@
                     <group>
                         <field name="name"/>
                         <field name="especialidad"/>
+                        <field name="fecha_creacion"/>
+                        <field name="departamento_ids" widget="many2many"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <record id="rrhh_upo_equipo_investigacion_graph_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.equipo_investigacion.graph</field>
+        <field name="model">rrhh_upo.equipo_investigacion</field>
+        <field name="arch" type="xml">
+            <graph string="Equipos de Investigación" type="bar">
+                <field name="name" type="row"/>
+                <field name="especialidad" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+
     <record id="equipo_investigacion_list_action" model="ir.actions.act_window">
         <field name="name">Equipos de Investigación</field>
         <field name="res_model">rrhh_upo.equipo_investigacion</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,graph</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face"> Añade el primer equipo de investigación </p>
         </field>

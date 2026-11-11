@@ -1,0 +1,58 @@
+
+<odoo>
+    <record id='rrhh_upo_rol_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.rol.form</field>
+        <field name='model'>rrhh_upo.rol</field>
+        <field name='arch' type='xml'>
+            <form string='Rol de Usuario'>
+                <sheet layout='auto'>
+                    <group>
+                        <field name='name'/>
+                    </group>
+
+                    <group string='Descripción'>
+                        <field name='sDescriptor' placeholder='Rol requerido para...'/>
+                    </group>
+
+                    <notebook>
+                        <page name='permisos' string='Permisos Asignados'>
+                            <field name='permiso_ids' widget='many2many'/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_rol_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.rol.list</field>
+        <field name='model'>rrhh_upo.rol</field>
+        <field name='arch' type='xml'>
+            <tree string='Roles de Usuario'>
+                <field name='name'/>
+                <field name='sDescriptor'/>
+                <field name='permiso_ids' widget='many2many'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_rol_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.rol.search</field>
+        <field name='model'>rrhh_upo.rol</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Rol'>
+                <field name='name'/>
+            </search>
+        </field>
+    </record>
+
+    <record id='rol_list_action' model='ir.actions.act_window'>
+        <field name='name'>Roles</field>
+        <field name='res_model'>rrhh_upo.rol</field>
+        <field name='view_mode'>form,tree</field>
+        <field name='search_view_id' ref='rrhh_upo_rol_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Rol de Usuario</p>
+        </field>
+    </record>
+</odoo>

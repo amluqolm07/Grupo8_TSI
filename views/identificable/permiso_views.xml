@@ -1,0 +1,65 @@
+
+<odoo>
+    <record id='rrhh_upo_permiso_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.permiso.form</field>
+        <field name='model'>rrhh_upo.permiso</field>
+        <field name='arch' type='xml'>
+            <form string='Permiso'>
+                <sheet layout='auto'>
+                    <group>
+                        <field name='name'/>
+                        <field name='active'/>
+                    </group>
+
+                    <group string='Descripción'>
+                        <field name='sDescriptor' placeholder='Permiso para...'/>
+                    </group>
+
+                    <notebook>
+                        <page name='roles' string='Roles que Incluyen este Permiso'>
+                            <field name='rol_ids' widget='many2many'/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_permiso_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.permiso.list</field>
+        <field name='model'>rrhh_upo.permiso</field>
+        <field name='arch' type='xml'>
+            <tree string='Permisos'>
+                <field name='name'/>
+                <field name='sDescriptor'/>
+                <field name='active'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_permiso_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.permiso.search</field>
+        <field name='model'>rrhh_upo.permiso</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Permiso'>
+                <filter name='search_active' string='Solo Permisos Activos' domain="[('active', '=', True)]"/>
+
+                <separator/>
+                <filter name='search_inactive' string='Solo Permisos Inactivos' domain="[('active', '=', False)]"/>
+
+                <separator/>
+                <field name='name'/>
+            </search>
+        </field>
+    </record>
+
+    <record id='permiso_list_action' model='ir.actions.act_window'>
+        <field name='name'>Permisos</field>
+        <field name='res_model'>rrhh_upo.permiso</field>
+        <field name='view_mode'>form,tree</field>
+        <field name='search_view_id' ref='rrhh_upo_permiso_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Permiso del sistema</p>
+        </field>
+    </record>
+</odoo>

@@ -7,7 +7,7 @@
                 <field name="name"/>
                 <field name="email"/>
                 <field name="planta"/>
-                <field name="grado_id widget=many2one"/>
+                <field name="grado_id" widget="many2one"/>
                 <field name="equipo_investigacion_ids" widget="many2many_tags"/>
             </list>
         </field>
@@ -23,7 +23,7 @@
                         <field name="name"/>
                         <field name="email"/>
                         <field name="planta"/>
-                        <field name="grado_id widget=many2one"/>
+                        <field name="grado_id" widget="many2one"/>
                         <field name="equipo_investigacion_ids" widget="many2many_tags"/>
                         <!-- <field name="telefono_ids" widget="many2many_tags"/>
                         <fields name="edificio_id" widget="many2one"/> -->

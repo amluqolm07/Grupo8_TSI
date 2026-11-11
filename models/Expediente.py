@@ -20,22 +20,24 @@ class Expediente(models.Model):
     
     matricula_ids = fields.One2many('rrhh_upo.matricula', 'expediente_id', 'Matrículas del expediente')
     
-    _sql_constraints = [('rrhh_upo_expediente_name_unique', 'UNIQUE(name)', 'La fecha de apertura del expediente debe ser única.')]
+    
+    # _sql_constraints = [('rrhh_upo_expediente_unique', 'UNIQUE(alumno_id, grado_id, name)',
+    #                      'Ese alumno ya tiene un expediente en ese grado con esa fecha.')]
     
     
-    @api.depends('matricula_ids.nota')
+    @api.depends('matricula_ids.matricula_contiene_asignatura_ids.nota')
     def _compute_nota_media(self):
         for expediente in self:
             notas = expediente.matricula_ids.mapped('matricula_contiene_asignatura_ids.nota')
             expediente.nota_media = sum(notas) / len(notas) if notas else 0.0
             
-    @api.depends('matricula_ids.asignatura_id.creditos', 'matricula_ids.matricula_contiene_asignatura_ids.nota')
+    @api.depends('matricula_ids.matricula_contiene_asignatura_ids.nota',
+             'matricula_ids.matricula_contiene_asignatura_ids.asignatura_id.creditos')
     def _compute_creditos_superados(self):
         for expediente in self:
-            creditos = [asignatura.creditos for matricula in expediente.matricula_ids for asignatura in matricula.asignatura_id if asignatura.creditos is not None]
-            expediente.creditos_superados = sum(creditos)
-
-
+            aprobadas = expediente.matricula_ids.mapped('matricula_contiene_asignatura_ids') \
+                                                .filtered(lambda linea: linea.nota >= 5)
+            expediente.creditos_superados = sum(aprobadas.mapped('asignatura_id.creditos'))
 
     @api.constrains('name', 'fecha_fin')
     def _check_fechas(self):

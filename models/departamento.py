@@ -17,3 +17,15 @@ class Departamento(models.Model):
     
     telefono_ids = fields.One2many('rrhh_upo.telefonos_departamentos', 'departamento_id', 'Teléfonos del departamento')
     
+    _sql_constraints = [('rrhh_upo_departamento_name_unique', 'UNIQUE(name)', 'El nombre del departamento debe ser único.')]
+    
+    @api.constrains('email')
+    def _check_email(self):
+        for record in self:
+            if '@' not in record.email or '.' not in record.email.split('@')[-1]:
+                raise models.ValidationError('El email del departamento no es válido.')
+
+    @api.onchange('email')
+    def _onchange_email(self):
+        if self.email:
+            self.email = self.email.strip().lower()

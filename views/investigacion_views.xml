@@ -17,22 +17,43 @@
         <field name="model">rrhh_upo.investigacion</field>
         <field name="arch" type="xml">
             <form string="form_string">
+                <header>
+                    <button name="btn_submit_to_en_proceso" type="object" string="En proceso" class="oe_highlight" />
+                    <button name="btn_submit_to_finalizada" type="object" string="Finalizada" class="oe_highlight"/>
+                    <button name="btn_submit_to_cancelada" type="object" string="Cancelada" class="oe_highlight"/>
+                </header>
                 <sheet layout="auto">
                     <group>
                         <field name="name"/>
                         <field name="fecha_inicio"/>
                         <field name="fecha_fin"/>
-                        <field name="estado"/>
+                        <field name="tipo_investigacion_id" widget="many2one"/>
+                        <!-- <field name="pdi_ids" widget="many2many_tags"/> -->
+                        <field name="descripcion"/>
+                        <field name="estado" widget="statusbar"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
+
+    <record id="rrhh_upo_investigacion_calendar_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.investigacion.calendar</field>
+        <field name="model">rrhh_upo.investigacion</field>
+        <field name="arch" type="xml">
+            <calendar string="calendar_string" date_start="fecha_inicio" date_stop="fecha_fin">
+                <field name="name"/>
+                <field name="estado"/>
+            </calendar>
+        </field>
+    </record>
+
+
     <record id="investigacion_list_action" model="ir.actions.act_window">
         <field name="name">Investigaciones</field>
         <field name="res_model">rrhh_upo.investigacion</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,calendar</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face"> Añade la primera investigacion </p>
         </field>

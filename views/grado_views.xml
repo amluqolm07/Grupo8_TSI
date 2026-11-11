@@ -1,4 +1,5 @@
 <odoo>
+    <!-- Grado List View -->
     <record id="rrhh_upo_grado_list_view" model="ir.ui.view">
         <field name="name">rrhh_upo.grado.list</field>
         <field name="model">rrhh_upo.grado</field>
@@ -11,6 +12,8 @@
         </field>
     </record>
 
+
+    <!-- Grado Form View -->
     <record id="rrhh_upo_grado_form_view" model="ir.ui.view">
         <field name="name">rrhh_upo.grado.form</field>
         <field name="model">rrhh_upo.grado</field>
@@ -18,10 +21,21 @@
             <form string="form_string">
                 <sheet layout="auto">
                     <group>
-                        <field name="name"/>
-                        <field name="nombre"/>
-                        <field name="rama"/>
+                        <field name="name" placeholder="XXXXXXX"/>
                     </group>
+                    <notebook>
+                        <page name="Datos_grado" string="Datos del grado">
+                            <group>
+                                <field name="nombre" placeholder="Grado en Ingeniería"/>
+                                <field name="rama"/>
+                            </group>
+                        </page>
+                        <!-- <page name="PDI" string="PDI del grado">
+                            <group>
+                                <field name="pdi_ids" widget="many2many_tags"/>
+                            </group>
+                        </page> -->
+                    </notebook>
                 </sheet>
             </form>
         </field>

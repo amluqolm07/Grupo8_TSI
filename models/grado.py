@@ -7,7 +7,7 @@ class Grado(models.Model):
     _name = 'rrhh_upo.grado'
     _description = 'Grado'
     
-    name = fields.Char(string='ID', help = "ID del grado", required=True)
+    name = fields.Char(string='ID', help = "ID del grado", size=7, required=True)
     nombre = fields.Char('Nombre', help = "Nombre del grado", required=True)
     rama = fields.Selection([('ingenieria', 'Ingeniería'),
                              ('ciencias', 'Ciencias'),
@@ -23,5 +23,20 @@ class Grado(models.Model):
     
     # pdi_ids = fields.many2many('rrhh_upo.pdi', string='PDI del grado')
     
+    _sql_constraints = [('rrhh_upo_grado_nombre_unique', 'UNIQUE(nombre)', 'El nombre del grado debe ser único.')]
     
-    
+    @api.onchange('name')
+    def _onchange_name(self):
+        if self.name:
+            self.name = self.name.upper().strip()
+            if len(self.name) < 7:
+                return {
+                    'value': {'name': ''},
+                    'warning': {
+                        'title': 'ID demasiado corto',
+                        'message': 'El ID del grado debe tener al menos 7 caracteres.'
+                    }
+                }
+            
+            
+            

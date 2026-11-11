@@ -50,3 +50,10 @@ class Solicitud(models.Model):
     def _onchange_name(self):
         if self.name > fields.Datetime.now():
             self.name = fields.Datetime.now()
+            return {
+            'value': {'name': fields.Datetime.now()},
+            'warning': {
+                'title': 'Fecha incorrecta',
+                'message': 'La fecha de solicitud no puede ser futura. Se ha puesto la fecha actual.'
+            }
+        }

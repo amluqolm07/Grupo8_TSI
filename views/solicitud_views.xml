@@ -19,7 +19,7 @@
 
 
 
-
+<!-- Solicitud Form View -->
     <record id="rrhh_upo_solicitud_form_view" model="ir.ui.view">
         <field name="name">rrhh_upo.solicitud.form</field>
         <field name="model">rrhh_upo.solicitud</field>

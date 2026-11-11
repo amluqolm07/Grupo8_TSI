@@ -15,6 +15,6 @@ class Investigacion(models.Model):
     descripcion = fields.Text(string='Descripción', help = "Descripción de la investigación")
     # añadir financiacion total, suma de todas las financiaciones
     
-    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', string='Equipo de investigación')
+    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', 'investigacion_id', string='Equipo de investigación')
     
     

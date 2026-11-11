@@ -13,4 +13,4 @@ class Equipo_Investigacion(models.Model):
     
     departamento_ids = fields.Many2many('rrhh_upo.departamento', String='Departamentos')
     
-    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', string='Equipo de investigación')
+    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', 'equipo_investigacion_id', string='Equipo de investigación')

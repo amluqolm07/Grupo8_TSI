@@ -11,3 +11,5 @@ class Expediente(models.Model):
     fecha_fin = fields.Date(string='Fecha de cierre', help = "Fecha de cierre del expediente")
     estado = fields.Selection([('abierto', 'Abierto'),
                             ('cerrado', 'Cerrado')], required=True)
+    
+    grado_id = fields.Many2one('rrhh_upo.grado', string='Grado', required=True)

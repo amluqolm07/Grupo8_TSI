@@ -15,8 +15,13 @@ class Grado(models.Model):
                              ('salud', 'Salud'),
                              ('sociales', 'Sociales')], required=True)
     
+    
+    
     asignatura_ids = fields.One2many('rrhh_upo.asignatura', 'grado_id', 'Asignaturas del grado')
     departamento_ids = fields.One2many('rrhh_upo.departamento', 'grado_id', 'Departamentos del grado')
+    expediente_ids = fields.One2many('rrhh_upo.expediente', 'grado_id', 'Expedientes del grado')
+    
+    # pdi_ids = fields.many2many('rrhh_upo.pdi', string='PDI del grado')
     
     
     

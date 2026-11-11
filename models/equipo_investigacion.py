@@ -9,5 +9,8 @@ class Equipo_Investigacion(models.Model):
     
     name = fields.Char(string='Equipo', help = "Equipo de investigación", required=True)
     especialidad = fields.Char(string='Especialidad', required=True)
+    fecha_creacion = fields.Date(string='Fecha de creación', required=True)
     
     departamento_ids = fields.Many2many('rrhh_upo.departamento', String='Departamentos')
+    
+    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', string='Equipo de investigación')

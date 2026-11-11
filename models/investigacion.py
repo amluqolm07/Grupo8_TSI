@@ -14,6 +14,8 @@ class Investigacion(models.Model):
     descripcion = fields.Text()
     # añadir financiacion total, suma de todas las financiaciones
     
-    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', 'investigacion_id', string='Equipo de investigación')
+    # pdi_ids = fields.Many2many('rrhh_upo.pdi', String='PDI')
+    tipo_investigacion_id = fields.Many2one('rrhh_upo.tipo_investigacion', string='Tipo de investigación', required=True)
     
-    
+    equipo_trabaja_investigacion_ids = fields.One2many('rrhh_upo.equipo_trabaja_investigacion', 'investigacion_id', 'Equipo de investigación')
+    financiacion_ids = fields.One2many('rrhh_upo.financiacion', 'investigacion_id', 'Financiación')

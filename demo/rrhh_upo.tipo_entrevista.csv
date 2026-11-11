@@ -1,4 +1,0 @@
-id,name,sDescripcion,fDuracion_estimada,iPersonal_necesario,sModalidad,sFormato
-tipo_ent_1,"Entrevista tecnica","Evaluacion de competencias tecnicas y programacion",1.0,2,estructurada,presencial
-tipo_ent_2,"Entrevista RRHH","Evaluacion general de perfil y habilidades blandas",0.5,1,semiestructurada,telematico
-tipo_ent_3,"Entrevista directiva","Entrevista final con direccion de departamento",1.5,3,"por competencias",presencial

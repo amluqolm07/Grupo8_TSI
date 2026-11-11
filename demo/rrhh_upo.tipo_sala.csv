@@ -1,4 +1,0 @@
-id,name,sNormativa,bAcceso_internet,bDigitalizada,bClimatizada,bAdaptada
-tipo_sala_reunion,Reunion,"Uso exclusivo para reuniones de departamento y seguimiento de proyectos.",True,True,True,True
-tipo_sala_entrevista,Entrevista,"Normativa de silencio y confidencialidad para procesos de seleccion.",True,False,True,True
-tipo_sala_conferencia,Conferencia,"Capacidad maxima y obligacion de apagar dispositivos electronicos al salir.",True,True,True,True

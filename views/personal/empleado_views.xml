@@ -1,0 +1,124 @@
+
+<odoo>
+    <record id='rrhh_upo_empleado_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.empleado.form</field>
+        <field name='model'>rrhh_upo.empleado</field>
+        <field name='arch' type='xml'>
+            <form string='Empleado'>
+                <sheet layout='auto'>
+                    <group string='Identificación de Empleado'>
+                        <field name='sDni'/>
+                        <field name='sNombre'/>
+                        <field name='sPrimerApellido'/>
+                        <field name='sSegundoApellido'/>
+                    </group>
+
+                    <group>
+                        <group string='Datos Personales'>
+                            <field name='persona_id' invisible='1'/>
+                            <field name='sEmail'/>
+                            <field name='sTelefono'/>
+                            <field name='dFechaNacimiento'/>
+                            <field name='iEdad'/>
+                            <field name='paisResidencia_id' widget='many2one'/>
+                        </group>
+
+                        <group string='Información de Empleado'>
+                            <field name='sSeguridadSocial'/>
+                            <field name='ciudadResidencia_id' widget='many2one'/>
+                            <field name='sDireccionResidencia'/>
+                            <field name='fSalario'/>
+                            <field name='iLongevidad'/>
+                        </group>
+                    </group>
+
+                    <group string='Funciones'>
+                        <field name='sFuncion' placeholder='Describa brevemente las funciones del empleado...'/>
+                    </group>
+
+                    <notebook>
+                        <page name='contrato' string='Contratos Laborales'>
+                            <field name='contrato_ids' widget='one2many'>
+                                <tree>
+                                    <field name='fSalarioBase'/>
+                                    <field name='dFechaInicio'/>
+                                    <field name='dFechaFin'/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page name='historial' string='Historial Laboral'>
+                            <field name='historialLaboral_ids' widget='one2many'>
+                                <tree>
+                                    <field name='dFechaInicio'/>
+                                    <field name='sPuesto'/>
+                                    <field name='sMotivoCambio'/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page name='cita' string='Citas'>
+                            <field name='cita_ids' widget='many2many'>
+                                <tree>
+                                    <field name='dFechaHoraCita'/>
+                                    <field name='sMotivo'/>
+                                    <field name='sConclusion'/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_empleado_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.empleado.list</field>
+        <field name='model'>rrhh_upo.empleado</field>
+        <field name='arch' type='xml'>
+            <tree string='Empleados'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+                <field name='sSegundoApellido'/>
+                <field name='sSeguridadSocial'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <field name='fSalario'/>
+                <field name='iLongevidad'/>
+                <field name='paisResidencia_id' widget='many2one'/>
+                <field name='ciudadResidencia_id' widget='many2one'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_empleado_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.empleado.search</field>
+        <field name='model'>rrhh_upo.empleado</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Empleado'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <field name='sSeguridadSocial'/>
+                
+                <separator orientation='vertical'/>
+                <group expand='0' string='Agrupar Por'>
+                    <filter name='group_pais' string='País de Residencia' context="{'group_by' : 'paisResidencia_id'}"/>
+                    <filter name='group_ciudad' string='Ciudad de Residencia' context="{'group_by' : 'ciudadResidencia_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='empleado_list_action' model='ir.actions.act_window'>
+        <field name='name'>Empleado<field/>
+        <field name='model'>rrhh_upo.empleado</field>
+        <field name='view_mode'>from,tree</field>
+        <field name='search_view_id' reference='rrhh_upo_empleado_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Empleado</p>
+        </field>
+    </record>
+</odoo>

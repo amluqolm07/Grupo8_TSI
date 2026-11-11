@@ -1,0 +1,76 @@
+
+<odoo>
+    <record id='rrhh_upo_persona_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.persona.form</field>
+        <field name='model'>rrhh_upo.persona</field>
+        <field name='arch' type='xml'>
+            <form string='Persona'>
+                <sheet layout='auto'>
+                    <group name='dni' class='oe_title'>
+                        <field name='sDni' placeholder='12345678A'/>
+                    </group>
+
+                    <group string='Información Personal'>
+                        <field name='sNombre'/>
+                        <field name='sPrimerApellido'/>
+                        <field name='sSegundoApellido'/>
+                        <field name='dFechaNacimiento'/>
+                        <field name='iEdad'/>
+                    </group>
+
+                    <group string='Datos de Contacto y Residencia'>
+                        <field name='sEmail'/>
+                        <field name='sTelefono'/>
+                        <field name='paisResidencia_id' widget='many2one'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_persona_list_view', model='ir.ui.view'>
+        <field name='name'>rrhh_upo.persona.list</field>
+        <field name='model'>rrhh_upo.persona</field>
+        <field name='arch' type='xml'>
+            <tree string='Personas'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+                <field name='sSegundoApellido'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <field name='dFechaNacimiento'/>
+                <field name='iEdad'/>
+                <field name='paisResidencia_id' widget='many2one'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_persona_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.persona.search</field>
+        <field name='model'>rrhh_upo.persona</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Persona'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <separator orientation='vertical'/>
+
+                <group expand='0' string='Agrupar Por'>
+                    <filter name='group_pais' string='País de Residencia' context="{'group_by' : 'paisResidencia_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='persona_list_action', model='ir.action.act_window'>
+        <field name='name'>Personas</field>
+        <field name='res_model'>rrhh_upo.persona</field>
+        <field name='view_mode'>form,tree</field>
+        <field name='search_view_id' ref='rrhh_upo_persona_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea la primera Persona</p>
+        </field>
+    </record>
+</odoo>

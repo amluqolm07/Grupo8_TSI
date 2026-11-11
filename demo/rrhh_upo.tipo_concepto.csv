@@ -1,0 +1,4 @@
+id,name,sNombre,sDescripcion,fPorcentaje,bEsDeduccion
+tipo_concepto_0,IRPF,"Retención IRPF","Retención del impuesto sobre la renta",15,True
+tipo_concepto_1,SS,"Seguridad Social","Cotización a la Seguridad Social",6.35,True
+tipo_concepto_2,TRANSP,"Plus de transporte","Ayuda mensual de transporte",0,False

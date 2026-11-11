@@ -1,0 +1,45 @@
+<odoo>
+    <record id="rrhh_upo_financiacion_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.financiacion.list</field>
+        <field name="model">rrhh_upo.financiacion</field>
+        <field name="arch" type="xml">
+            <list string="list_string">
+                <field name="name"/>
+                <field name="descripcion"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="rrhh_upo_financiacion_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.financiacion.form</field>
+        <field name="model">rrhh_upo.financiacion</field>
+        <field name="arch" type="xml">
+            <form string="form_string">
+                <header>
+                    <button name="btn_submit_to_solicitada" type="object" string="Solicitada" class="oe_highlight"/>
+                    <button name="btn_submit_to_concedida" type="object" string="Concedida" class="oe_highlight"/>
+                    <button name="btn_submit_to_rechazada" type="object" string="Rechazado" class="oe_highlight"/>
+                    <button name="btn_submit_to_en_proceso" type="object" string="En Proceso" class="oe_highlight"/>
+                </header>
+                <sheet layout="auto">
+                    <group>
+                        <field name="name"/>
+                        <field name="estado" widget="statusbar"/>
+                        <field name="importe"/>
+                        <field name="descripcion"/>
+                        <field name="investigacion_id" widget="many2one"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="financiacion_list_action" model="ir.actions.act_window">
+        <field name="name">Financiaciones</field>
+        <field name="res_model">rrhh_upo.financiacion</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face"> Añade la primera financiación </p>
+        </field>
+    </record>
+</odoo>

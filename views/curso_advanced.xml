@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_rrhh_upo_curso_list" model="ir.ui.view">
+        <field name="name">rrhh_upo.curso.list</field>
+        <field name="model">rrhh_upo.curso</field>
+        <field name="arch" type="xml">
+            <list string="Cursos">
+                <field name="sCurso"/>
+                <field name="tipoCurso_id"/>
+                <field name="fEstimacionHoras"/>
+                <field name="ofertaEmpleo_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_rrhh_upo_curso_form" model="ir.ui.view">
+        <field name="name">rrhh_upo.curso.form</field>
+        <field name="model">rrhh_upo.curso</field>
+        <field name="arch" type="xml">
+            <form string="Curso">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="sCurso"/>
+                        <h1>
+                            <field name="sCurso" placeholder="Nombre del curso"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Datos del curso">
+                            <field name="tipoCurso_id"/>
+                            <field name="fEstimacionHoras"/>
+                        </group>
+                        <group string="Oferta asociada">
+                            <field name="ofertaEmpleo_id"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Inscripciones">
+                            <field name="inscripcionCurso_ids">
+                                <list>
+                                    <field name="empleado_id"/>
+                                    <field name="dFechaInscripcion"/>
+                                    <field name="dFechaFin"/>
+                                    <field name="sEstado"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_rrhh_upo_curso_graph" model="ir.ui.view">
+        <field name="name">rrhh_upo.curso.graph</field>
+        <field name="model">rrhh_upo.curso</field>
+        <field name="arch" type="xml">
+            <graph string="Horas estimadas por tipo de curso" type="bar">
+                <field name="tipoCurso_id"/>
+                <field name="fEstimacionHoras" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_curso" model="ir.actions.act_window">
+        <field name="name">Cursos</field>
+        <field name="res_model">rrhh_upo.curso</field>
+        <field name="view_mode">list,form,graph</field>
+    </record>
+
+    <menuitem id="menu_rrhh_upo_cursos_root" name="Cursos" sequence="10"/>
+    <menuitem id="menu_rrhh_upo_curso" name="Cursos"
+              parent="menu_rrhh_upo_cursos_root"
+              action="action_rrhh_upo_curso" sequence="10"/>
+
+</odoo>

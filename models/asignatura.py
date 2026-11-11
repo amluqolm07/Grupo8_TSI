@@ -8,12 +8,12 @@ class Asignaturas(models.Model):
     _description = 'Asignaturas'
     
     name = fields.Char(string='ID', help = "ID de la asignatura", required=True)
-    creditos = fields.Integer(string='Créditos', required=True)
-    curso = fields.Integer(string='Curso', required=True)
+    creditos = fields.Integer('Créditos', required=True)
+    curso = fields.Integer('Curso', required=True)
     tipo = fields.Selection([('obligatoria', 'Obligatoria'), 
                              ('optativa', 'Optativa'),
                              ('basica', 'Basica')], required=True)
-    nombre = fields.Char(string='Nombre', help = "Nombre de la asignatura", required=True)
+    nombre = fields.Char('Nombre', required=True)
     cuatrimestre = fields.Selection([('1', 'Primer cuatrimestre'), 
                                    ('2', 'Segundo cuatrimestre'),
                                    ('0', 'Anual')], required=True)

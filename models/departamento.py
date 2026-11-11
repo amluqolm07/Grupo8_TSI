@@ -8,8 +8,8 @@ class Departamento(models.Model):
     _description = 'Departamento'
     
     name = fields.Char(string='Nombre', help = "Nombre del departamento", required=True)
-    email = fields.Char(string='Email', required=True)
-    planta = fields.Char(string='Planta', required=True)
+    email = fields.Char('Email', required=True)
+    planta = fields.Char('Planta', required=True)
     
     grado_id = fields.Many2one('rrhh_upo.grado', string='Grado', required=True)
     # edificio_id = fields.Many2one('rrhh_upo.edificio', string='Edificio', required=True)

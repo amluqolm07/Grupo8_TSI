@@ -8,7 +8,7 @@ class Grado(models.Model):
     _description = 'Grado'
     
     name = fields.Char(string='ID', help = "ID del grado", required=True)
-    nombre = fields.Char(string='Nombre', help = "Nombre del grado", required=True)
+    nombre = fields.Char('Nombre', help = "Nombre del grado", required=True)
     rama = fields.Selection([('ingenieria', 'Ingeniería'),
                              ('ciencias', 'Ciencias'),
                              ('humanidades', 'Humanidades'),

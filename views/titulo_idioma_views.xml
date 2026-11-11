@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="titulo_idioma_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.titulo_idioma.form</field>
+        <field name="model">rrhh_upo.titulo_idioma</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="idioma"/>
+                            <field name="academia" />
+                        </group>
+                        <group>
+                            <field name="nivel" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Usado en requisitos" name="requisitos">
+                            <field name="requisito_ids" widget="many2many_tags" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="titulo_idioma_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.titulo_idioma.list</field>
+        <field name="model">rrhh_upo.titulo_idioma</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="idioma"/>
+                <field name="nivel" widget="badge"/>
+                <field name="academia"/>
+            </list>
+        </field>
+    </record>
+
+    
+    <record id="titulo_idioma_search_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.titulo_idioma.search</field>
+        <field name="model">rrhh_upo.titulo_idioma</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Título"/>
+                <field name="idioma"/>
+                <field name="academia"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_idioma" string="Idioma" context="{'group_by': 'idioma'}"/>
+                    <filter name="group_nivel" string="Nivel" context="{'group_by': 'nivel'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="titulo_idioma_graph_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.titulo_idioma.graph</field>
+        <field name="model">rrhh_upo.titulo_idioma</field>
+        <field name="arch" type="xml">
+            <graph string="Titulos por idioma y nivel" type="bar">
+                <field name="idioma"/>
+                <field name="nivel"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="titulo_idioma_list_action" model="ir.actions.act_window">
+        <field name="name">Títulos de idioma</field>
+        <field name="res_model">rrhh_upo.titulo_idioma</field>
+        <field name='search_view_id' ref='titulo_idioma_search_view'/>
+        <field name="view_mode">list,form,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first título de idioma</p>
+        </field>
+    </record>
+</odoo>

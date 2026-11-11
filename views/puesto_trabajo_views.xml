@@ -1,0 +1,23 @@
+<odoo>
+    <record id="rrhh_upo_puesto_trabajo_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.puesto_trabajo.form</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="arch" type="xml">
+            <field name="department_id" position="after">
+                <field name="categoria_profesional"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="rrhh_upo_puesto_trabajo_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.puesto_trabajo.list</field>
+        <field name="model">hr.job</field>
+        <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="categoria_profesional" optional="show"/>
+            </field>
+        </field>
+    </record>
+</odoo>

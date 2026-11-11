@@ -1,0 +1,16 @@
+<odoo>
+    <!-- Top menu item -->
+    <menuitem name="RRHH" id="main_rrhh_upo_menu" groups="group_rrhh_upo_manager"/>
+
+    <!-- menu categories -->
+    <menuitem name="RRHH" id="rrhh_upo_menu" groups="group_rrhh_upo_manager" parent="main_rrhh_upo_menu"/>
+
+    <!-- actions -->
+    <menuitem name="Aptitudes" id="aptitud_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="aptitud_list_action"/>
+    <menuitem name="Lenguajes de programación" id="lenguaje_programacion_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="lenguaje_programacion_list_action"/>
+    <menuitem name="Títulos de idioma" id="titulo_idioma_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="titulo_idioma_list_action"/>
+    <menuitem name="Requisitos" id="requisito_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="requisito_list_action"/>
+    <menuitem name="Materiales" id="material_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="material_list_action"/>
+    <menuitem name="Puestos de trabajo" id="puesto_trabajo_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="hr.action_hr_job"/>
+    <menuitem name="Títulos académicos" id="titulo_academico_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="hr_recruitment.hr_recruitment_degree_action"/>    
+</odoo>

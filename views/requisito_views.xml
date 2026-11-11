@@ -1,0 +1,81 @@
+<odoo>
+
+
+    <record id="requisito_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.requisito.form</field>
+        <field name="model">rrhh_upo.requisito</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <group string="Motivo">
+                        <field name="motivo" nolabel="1"
+                            placeholder="Explica por qué es necesario este requisito para la oferta..."/>
+                    </group>
+                    <group>
+                        <group string="Formación requerida">
+                            <field name="titulo_academico_ids" string="Títulos académicos" widget="many2many_tags"/>
+                            <field name="titulo_idioma_ids" string="Títulos de idioma" widget="many2many_tags"/>
+                        </group>
+                        <group string="Competencias requeridas">
+                            <field name="aptitud_ids" string="Aptitudes" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="lenguaje_programacion_ids" string="Lenguajes de programación" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="requisito_search_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.requisito.search</field>
+        <field name="model">rrhh_upo.requisito</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="aptitud_ids"/>
+                <field name="lenguaje_programacion_ids"/>
+                <field name="titulo_idioma_ids"/>
+                <field name="titulo_academico_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="rrhh_upo_requisito_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.requisito.list</field>
+        <field name="model">rrhh_upo.requisito</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="aptitud_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="lenguaje_programacion_ids" widget="many2many_tags" optional="hide"/>
+                <field name="titulo_idioma_ids" widget="many2many_tags" optional="hide"/>
+                <field name="titulo_academico_ids" widget="many2many_tags" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="requisito_view_pivot" model="ir.ui.view">
+        <field name="name">rrhh_upo.requisito.pivot</field>
+        <field name="model">rrhh_upo.requisito</field>
+        <field name="arch" type="xml">
+            <pivot string="Aptitudes por lenguaje">
+                <field name="aptitud_ids" type="row"/>
+                <field name="lenguaje_programacion_ids" type="col"/>
+            </pivot>
+        </field>
+    </record>
+    
+    <record id="requisito_list_action" model="ir.actions.act_window">
+        <field name="name">Requisitos</field>
+        <field name="res_model">rrhh_upo.requisito</field>
+        <field name='search_view_id' ref='requisito_search_view'/>
+        <field name="view_mode">list,form,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first requisito</p>
+        </field>
+    </record>
+</odoo>

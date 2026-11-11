@@ -5,18 +5,37 @@
     <!-- Menu categories -->
     <menuitem name="RRHH_UPO" id="rrhh_upo_menu" groups="group_rrhh_upo_manager" parent="main_rrhh_upo_menu"/>
     <menuitem name="Solicitudes" id="solicitudes_menu" parent="main_rrhh_upo_menu" groups="group_rrhh_upo_manager" action="solicitud_list_action"/>
-    <menuitem name="Departamentos" id="departamentos_menu" parent="main_rrhh_upo_menu" groups="group_rrhh_upo_manager" action="departamento_list_action"/>
     <menuitem name="Grados" id="grados_menu" parent="main_rrhh_upo_menu" groups="group_rrhh_upo_manager" action="grado_list_action"/>
 
-    <!-- actions de departamentos-->
-    <menuitem name="Financiaciones" id="financiaciones_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="financiacion_list_action"/>
-    <menuitem name="Equipos de investigación" id="equipos_investigacion_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="equipo_investigacion_list_action"/>
-    <menuitem name="Investigaciones" id="investigaciones_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="investigacion_list_action"/>
-    <menuitem name="Tipos de investigacion" id="tipos_investigacion_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="tipo_investigacion_list_action"/>
+    <!-- actions de RRHH_UPO-->
+    <menuitem name="Solicitudes" id="solicitudes2_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="solicitud_list_action"/>
+    <menuitem name="Grados" id="grados2_menu" parent="rrhh_upo_menu" groups="group_rrhh_upo_manager" action="grado_list_action"/>
+    
 
-    <!-- actions -->
-    <menuitem name="Asignaturas" id="asignaturas_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="asignatura_list_action"/>
-    <menuitem name="Expedientes" id="expedientes_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="expediente_list_action"/>
+    <!-- actions de solicitudes-->
+
+
+    <!-- actions de grados-->
+    <menuitem name="Departamentos" id="departamentos2_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="departamento_list_action"/>
+    
+    <!-- actions de departamentos-->
+    <menuitem name="Departamentos" id="departamentos_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="departamento_list_action"/>
+    <menuitem name="Investigaciones" id="investigaciones2_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="investigacion_list_action"/>
+
+    <!-- actions de Investigaciones-->
+    <menuitem name="Investigaciones" id="investigaciones_menu" parent="departamentos_menu" groups="group_rrhh_upo_manager" action="investigacion_list_action"/>
+    
+    <menuitem name="Tipos de investigacion" id="tipos_investigacion_menu" parent="investigaciones_menu" groups="group_rrhh_upo_manager" action="tipo_investigacion_list_action"/>
+    <menuitem name="Equipos de investigación" id="equipos_investigacion_menu" parent="investigaciones_menu" groups="group_rrhh_upo_manager" action="equipo_investigacion_list_action"/>
+    <menuitem name="Financiaciones" id="financiaciones_menu" parent="investigaciones_menu" groups="group_rrhh_upo_manager" action="financiacion_list_action"/>
+    
+    
+    <menuitem name="Matriculas" id="matriculas2_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="matricula_list_action"/>
+    <!-- actions de Matriculas -->
     <menuitem name="Matriculas" id="matriculas_menu" parent="grados_menu" groups="group_rrhh_upo_manager" action="matricula_list_action"/>
+    
+    <menuitem name="Asignaturas" id="asignaturas_menu" parent="matriculas_menu" groups="group_rrhh_upo_manager" action="asignatura_list_action"/>
+    <menuitem name="Expedientes" id="expedientes_menu" parent="matriculas_menu" groups="group_rrhh_upo_manager" action="expediente_list_action"/>
+
     
 </odoo>

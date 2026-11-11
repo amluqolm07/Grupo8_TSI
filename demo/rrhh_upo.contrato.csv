@@ -1,4 +1,4 @@
-id,name,dFechaInicio,dFechaFin,bActivo,fSalarioBase,tipo_contrato_id/id,solicitud_id/id
-contrato_0,CT-001,"2026-01-01 00:00:00",,True,2000,tipo_contrato_0,solicitud_0
-contrato_1,CT-002,"2025-02-01 00:00:00","2026-01-31 00:00:00",False,1500,tipo_contrato_1,solicitud_1
-contrato_2,CT-003,"2025-03-01 00:00:00","2025-08-31 00:00:00",False,900,tipo_contrato_3,solicitud_2
+id,name,dFechaInicio,dFechaFin,bActivo,fSalarioBase,tipo_contrato_id/id,solicitud_id/id,empleado_id/id
+contrato_0,CT-001,"2026-01-01 00:00:00",,True,2000,tipo_contrato_0,solicitud_0,empleado_0
+contrato_1,CT-002,"2025-02-01 00:00:00","2026-01-31 00:00:00",False,1500,tipo_contrato_1,solicitud_1,empleado_1
+contrato_2,CT-003,"2025-03-01 00:00:00","2025-08-31 00:00:00",False,900,tipo_contrato_3,solicitud_2,empleado_2

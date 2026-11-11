@@ -20,6 +20,8 @@ class Contrato(models.Model):
     tipo_contrato_id = fields.Many2one('rrhh_upo.tipo_contrato','Tipo de contrato',required=True)
     nomina_ids = fields.One2many('rrhh_upo.nomina','contrato_id','Nómina')
     solicitud_id = fields.Many2one('rrhh_upo.solicitud','Solicitud',required=True)
+    empleado_id = fields.Many2one('rrhh_upo.empleado','Empleado',required=True)
+    parte_horario_ids = fields.One2many('rrhh_upo.parte_horario','contrato_id','Parte Horario')
     
     _sql_constraints =[('contrato_unico', 'UNIQUE(name)', 'Ya existe un contrato con esa referencia')]
     

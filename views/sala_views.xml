@@ -1,0 +1,64 @@
+<odoo>
+    <record id="sala_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.sala.form</field>
+        <field name="model">rrhh_upo.sala</field>
+        <field name="arch" type="xml">
+            <form string="Sala">
+                <sheet>
+                    <group col="4">
+                        <field name="name"/>
+                        <field name="iNumero"/>
+                        <field name="iPlanta"/>
+                        <field name="tipo_sala_id"/>
+                        <field name="edificio_id"/>
+                        <field name="iAforo"/>
+                        <field name="sEstado"/>
+                        <field name="fSuperficie"/>
+                        <field name="fAltura"/>
+                        <field name="fDimensiones"/>
+                        <field name="fHora_apertura"/>
+                        <field name="fHora_cierre"/>
+                        <field name="cita_id"/>
+                        <field name="entrevista_id"/>
+                        <field name="sesion_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sala_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.sala.list</field>
+        <field name="model">rrhh_upo.sala</field>
+        <field name="arch" type="xml">
+            <list string="Salas">
+                <field name="name"/>
+                <field name="iNumero"/>
+                <field name="iPlanta"/>
+                <field name="tipo_sala_id"/>
+                <field name="edificio_id"/>
+                <field name="iAforo"/>
+                <field name="fSuperficie"/>
+                <field name="fDimensiones"/>
+                <field name="sEstado"/>
+            </list>
+        </field>
+    </record>
+    <!--GRAFO-->
+    <record id="sala_graph_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.sala.graph</field>
+        <field name="model">rrhh_upo.sala</field>
+        <field name="arch" type="xml">
+            <graph string="Aforo por Sala" type="bar">
+                <field name="name" type="row"/>
+                <field name="iAforo" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_sala" model="ir.actions.act_window">
+        <field name="name">Salas</field>
+        <field name="res_model">rrhh_upo.sala</field>
+        <field name="view_mode">list,form,graph</field>
+    </record>
+</odoo>

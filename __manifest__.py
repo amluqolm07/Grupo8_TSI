@@ -24,6 +24,20 @@
     'data': [
         'security/security.xml',
         'security/ir.model.access.csv',
+        #Vistas
+        'views/views.xml',
+        'views/cita_views.xml',
+        'views/entrevista_views.xml',
+        'views/historial_laboral_views.xml',
+        'views/sala_views.xml',
+        'views/sesion_views.xml',
+        'views/menu.xml',
+        #Demos por aqui, importa el orden
+        'demo/rrhh_upo.cita.csv',
+        'demo/rrhh_upo.entrevista.csv',
+        'demo/rrhh_upo.sala.csv',
+        'demo/rrhh_upo.sesion.csv',
+        'demo/rrhh_upo.historial_laboral.csv',
 
         'views/requisito_views.xml',
         'views/puesto_trabajo_views.xml',

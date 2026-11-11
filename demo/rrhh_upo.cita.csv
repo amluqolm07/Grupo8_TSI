@@ -1,0 +1,4 @@
+id,name,fDuracion,sMotivo,dFecha_hora_cita,sMedio_concertada,dFecha_hora_agendada,sEstado,sConclusion,tipo_cita_id/id,sala_id/id,empleado_ids/id
+cita_0,"Cita 0",0.5,"Revision de expediente","2025-09-20 09:00:00",email,"2025-09-18 08:00:00",pendiente,"Pendiente de confirmacion",tipo_cita_1,tipo_sala_reunion,"emp_1,emp_2"
+cita_1,"Cita 1",1.0,"Consulta de nomina","2025-09-20 11:00:00",telefono,"2025-09-19 09:15:00",finalizada,"Resuelto satisfactoriamente",tipo_cita_2,tipo_sala_entrevista,"emp_1,emp_3"
+cita_2,"Cita 2",1.5,"Entrevista de evaluacion","2025-09-21 09:00:00",presencial,"2025-09-20 11:00:00",cancelada,"Cancelado por indisponibilidad",tipo_cita_3,tipo_sala_conferencia,"emp_2,emp_3"

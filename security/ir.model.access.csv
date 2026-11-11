@@ -1,4 +1,14 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+cita_manager,cita_manager,model_rrhh_upo_cita,group_rrhh_manager,1,1,1,1
+entrevista_manager,entrevista_manager,model_rrhh_upo_entrevista,group_rrhh_manager,1,1,1,1
+historial_laboral_manager,historial_laboral_manager,model_rrhh_upo_historial_laboral,group_rrhh_manager,1,1,1,1
+parte_horario_manager,parte_horario_manager,model_rrhh_upo_parte_horario,group_rrhh_manager,1,1,1,1
+sala_manager,sala_manager,model_rrhh_upo_sala,group_rrhh_manager,1,1,1,1
+sesion_manager,sesion_manager,model_rrhh_upo_sesion,group_rrhh_manager,1,1,1,1
+tipo_cita_manager,tipo_cita_manager,model_rrhh_upo_tipo_cita,group_rrhh_manager,1,1,1,1
+tipo_entrevista_manager,tipo_cita_manager,model_rrhh_upo_tipo_entrevista,group_rrhh_manager,1,1,1,1
+tipo_sala_manager,tipo_sala_manager,model_rrhh_upo_tipo_sala,group_rrhh_manager,1,1,1,1
+tipo_sesion_manager,tipo_sesion_manager,model_rrhh_upo_tipo_sesion,group_rrhh_manager,1,1,1,1
 lenguaje_programacion_manager,lenguaje_programacion_manager,model_rrhh_upo_lenguaje_programacion,group_rrhh_upo_manager,1,1,1,1
 material_manager,material_manager,model_rrhh_upo_material,group_rrhh_upo_manager,1,1,1,1
 titulo_idioma_manager,titulo_idioma_manager,model_rrhh_upo_titulo_idioma,group_rrhh_upo_manager,1,1,1,1

@@ -1,0 +1,56 @@
+<odoo>
+    <record id="sesion_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.sesion.form</field>
+        <field name="model">rrhh_upo.sesion</field>
+        <field name="arch" type="xml">
+            <form string="Sesión">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="sEstado"/>
+                        <field name="dFecha_hora_inicio"/>
+                        <field name="fDuracion"/>
+                        <field name="dFecha_hora_final"/>
+                        <field name="iAsistentes_previstos"/>
+                        <field name="iAsistentes_reales"/>
+                        <field name="sala_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sesion_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.sesion.list</field>
+        <field name="model">rrhh_upo.sesion</field>
+        <field name="arch" type="xml">
+            <list string="Sesiones">
+                <field name="name"/>
+                <field name="dFecha_hora_inicio"/>
+                <field name="fDuracion"/>
+                <field name="sala_id"/>
+                <field name="iAsistentes_reales"/>
+                <field name="sEstado"/>
+            </list>
+        </field>
+    </record>
+
+    <!--CALENDARIO-->
+    <record id="sesion_calendar_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.sesion.calendar</field>
+        <field name="model">rrhh_upo.sesion</field>
+        <field name="arch" type="xml">
+            <calendar string="Calendario de Sesiones" date_start="dFecha_hora_inicio" date_stop="dFecha_hora_final" color="sEstado" mode="month">
+                <field name="name"/>
+                <field name="sala_id"/>
+                <field name="sEstado"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="action_rrhh_upo_sesion" model="ir.actions.act_window">
+        <field name="name">Sesiones</field>
+        <field name="res_model">rrhh_upo.sesion</field>
+        <field name="view_mode">list,form,calendar</field>
+    </record>
+</odoo>

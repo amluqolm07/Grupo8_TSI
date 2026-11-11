@@ -14,8 +14,7 @@ class Grado(models.Model):
                              ('humanidades', 'Humanidades'),
                              ('salud', 'Salud'),
                              ('sociales', 'Sociales')], 'Rama de estudio',required=True)
-    
-    
+
     
     asignatura_ids = fields.One2many('rrhh_upo.asignatura', 'grado_id', 'Asignaturas del grado')
     departamento_ids = fields.One2many('rrhh_upo.departamento', 'grado_id', 'Departamentos del grado')
@@ -23,7 +22,8 @@ class Grado(models.Model):
     
     # pdi_ids = fields.many2many('rrhh_upo.pdi', string='PDI del grado')
     
-    _sql_constraints = [('rrhh_upo_grado_nombre_unique', 'UNIQUE(nombre)', 'El nombre del grado debe ser único.')]
+    _sql_constraints = [('rrhh_upo_grado_nombre_unique', 'UNIQUE(nombre)', 'El nombre del grado debe ser único.'),
+                        ('rrhh_upo_grado_name_unique', 'UNIQUE(name)', 'El ID del grado debe ser único.')]
     
     @api.onchange('name')
     def _onchange_name(self):
@@ -38,5 +38,8 @@ class Grado(models.Model):
                     }
                 }
             
-            
-            
+    @api.constrains('name')
+    def _check_name_length(self):
+        for record in self:
+            if len(record.name) != 7:
+                raise models.ValidationError("El ID del grado debe tener exactamente 7 caracteres.")

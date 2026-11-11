@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 from datetime import date
+####
 
 class Nomina(models.Model):
     _name = 'rrhh_upo.nomina'

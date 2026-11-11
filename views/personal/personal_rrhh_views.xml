@@ -1,0 +1,101 @@
+<odoo>
+    <record id='rrhh_upo_personal_rrhh_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_rrhh.form</field>
+        <field name='model'>rrhh_upo.personal_rrhh</field>
+        <field name='inherit_id' ref='rrhh_upo_empleado_form_view'/>
+        <field name='arch' type='xml'>
+            <xpath expr="//field[@name='sFuncion']" position='before'>
+                <group string='Información de Personal de RRHH'>
+                    <group string='Información para RRHH'>
+                        <field name='empleado_id' invisible='1'/>
+                        <field name='sAreaEspecializacion'/>
+                        <field name='sNivelIngles'/>
+                    </group>
+
+                    <group string='Carga de Trabajo'>
+                        <field name='iEntrevistas'/>
+                        <field name='iAyudas'/>
+                        <field name='iStands'/>
+                    </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//notebook[@name='cita']" position='after'>
+                <page name='entrevista' string='Entrevistas Asignadas'>
+                    <field name='entrevista_ids' widget='many2many'>
+                        <tree>
+                        </tree>
+                    </field>
+                </page>
+                
+                <page name='ayudas' string='Ayudas Asignadas'>
+                    <field name='ayuda_ids' widget='many2many'>
+                        <tree>
+                        </tree>
+                    </field>
+                </page>
+                
+                <page name='stand' string='Stands Asignados'>
+                    <field name='stand_ids' widget='many2many'>
+                        <tree>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_personal_rrhh_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_rrhh.list</field>
+        <field name='model'>rrhh_upo.personal_rrhh</field>
+        <field name='arch' type='xml'>
+            <tree string='Personal RRHH'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+                <field name='sSegundoApellido'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <field name='sAreaEspecializacion'/>
+                <field name='sNivelIngles'/>
+                <field name='iEntrevistas'/>
+                <field name='iAyudas'/>
+                <field name='iStands'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_personal_rrhh_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_rrhh.search</field>
+        <field name='model'>rrhh_upo.personal_rrhh</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Personal RRHH'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+
+                <separator/>
+                <filter name='search_reclutamiento' string='Atracción y Selección de Talento' domain="[('sAreaEspecializacion', '=', 'reclutamiento')]"/>
+                <filter name='search_academica' string='Gestión de Ayudas Académicas' domain="[('sAreaEspecializacion', '=', 'academica')]"/>
+                <filter name='search_eventos' string='Asistente de Eventos' domain="[('sAreaEspecializacion', '=', 'eventos')]"/>
+                <filter name='search_general' string='General' domain="[('sAreaEspecializacion', '=', 'general')]"/>
+
+                <separator orientation='vertical'/>
+                <group expand='0' string='Agrupar Por'>
+                    <filter name='group_area_especializacion'  string='Área de Especialización' context="{'group_by' : 'sAreaEspecializacion'}"/>
+                    <filter name='group_nivel_ingles' string='Nivel de Inglés' context="{'group_by' : 'sNivelIngles'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='personal_rrhh_list_action' model='ir.actions.act_window'>
+        <field name='name'>Personal RRHH</field>
+        <field name='res_model'>rrhh_upo.personal_rrhh</field>
+        <field name='view_mode'>form,tree</field>
+        <field name='search_view_id' ref='rrhh_upo_personal_rrhh_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Empleado RRHH</p>
+        </field>
+    </record>
+</odoo>

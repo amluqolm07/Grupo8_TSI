@@ -1,0 +1,8 @@
+id,sNombre,sDescripcion,fImporteFijo,tipo_concepto_id/id,nomina_id/id
+concepto_0,"IRPF","Retención mensual",0,tipo_concepto_0,nomina_0
+concepto_1,"Seguridad Social","Cotización mensual",0,tipo_concepto_1,nomina_0
+concepto_2,"Transporte","Plus mensual",50,tipo_concepto_2,nomina_0
+concepto_3,"IRPF","Retención mensual",0,tipo_concepto_0,nomina_1
+concepto_4,"Transporte","Plus mensual",50,tipo_concepto_2,nomina_1
+concepto_5,"IRPF","Retención mensual",0,tipo_concepto_0,nomina_2
+concepto_6,"IRPF","Retención mensual",0,tipo_concepto_0,nomina_3

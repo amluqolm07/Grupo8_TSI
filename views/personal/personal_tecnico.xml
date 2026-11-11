@@ -1,0 +1,90 @@
+
+<odoo>
+    <record id='rrhh_upo_personal_tecnico_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_tecnico.form</field>
+        <field name='model'>rrhh_upo.personal_tecnico</field>
+        <field name='inherit_id' ref='rrhh_upo_empleado_form_view'/>
+        <field name='arch' type='xml'>
+            <xpath expr="//field[@name='sFuncion']" position='before'>
+                <group string='Información de Personal Técnico'>
+                    <group string='Información Técnica'>
+                        <field name='empleado_id' invisible='1'/>
+                        <field name='sEspecialidad'/>
+                        <field name='sNivelExperiencia'/>
+                        <field name='bDisponible'/>
+                    </group>
+
+                    <group string='Carga de Trabajo'>
+                        <field name='iEntrevistas'/>
+                    </group>
+                </group>
+            </xpath>
+
+            <xpath expr="//notebook[@name='cita']" position='after'>
+                <page name='entrevista' string='Entrevistas Asignadas'>
+                    <field name='entrevista_ids' widget='many2many'>
+                        <tree>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_personal_tecnico_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_tecnico.list</field>
+        <field name='model'>rrhh_upo.personal_tecnico</field>
+        <field name='arch' type='xml'>
+            <tree string='Personal Técnico'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+                <field name='sSegundoApellido'/>
+                <field name='sEmail'/>
+                <field name='sTelefono'/>
+                <field name='sEspecializacion'/>
+                <field name='sNivelExperiencia'/>
+                <field name='iEntrevistas'/>
+                <field name='bDisponible'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_personal_tecnico_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.personal_rrhh.search</field>
+        <field name='model'>rrhh_upo.personal_rrhh</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Personal Técnico'>
+                <field name='sDni'/>
+                <field name='sNombre'/>
+                <field name='sPrimerApellido'/>
+
+                <separator/>
+                <filter name='search_disponible' string='Solo Técnicos Disponibles' domain="[('bDisponible', '=', True)]"/>
+
+                <separator/>
+                <filter name='search_no_disponible' string='Solo Técnicos No Disponibles' domain="[('bDisponible', '=', False)]"/>
+
+                <separator/>
+                <filter name='search_junior' string='Junior' domain="[('sExperiencia', '=', 'junior')]"/>
+                <filter name='search_medio' string='Nivel Medio' domain="[('sExperiencia', '=', 'medio')]"/>
+                <filter name='search_senior' string='Senior' domain="[('sExperiencia', '=', 'senior')]"/>
+                <filter name='search_lead' string='Avanzado' domain="[('sExperiencia', '=', 'lead')]"/>
+
+                <separator orientation='vertical'/>
+                <group expand='0' string='Agrupar Por'>
+                    <filter name='group_experiencia'  string='Experiencia' context="{'group_by' : 'sExperiencia'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='personal_tecnico_list_action' model='ir.actions.act_window'>
+        <field name='name'>Personal Técnico</field>
+        <field name='res_model'>rrhh_upo.personal_tecnico</field>
+        <field name='view_mode'>form,tree</field>
+        <field name='search_view_id' ref='rrhh_upo_personal_tecnico_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Empleado Técnico</p>
+        </field>
+    </record>

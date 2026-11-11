@@ -1,0 +1,62 @@
+<odoo>
+  <record id="contrato_form_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.contrato.form</field>
+    <field name="model">rrhh_upo.contrato</field>
+    <field name="arch" type="xml">
+      <form string="Contrato">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="dFechaInicio" />
+            <field name="dFechaFin" />
+            <field name="bActivo" />
+            <field name="fSalarioBase" />
+            <field name="tipo_contrato_id" widget="many2one" />
+            <field name="solicitud_id" widget="many2one" />
+            <field name="nomina_ids" widget="one2many" />
+            <field name="empleado_id" widget="many2one" />
+            <field name="parte_horario_ids" widget="one2many" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="contrato_list_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.contrato.list</field>
+    <field name="model">rrhh_upo.contrato</field>
+    <field name="arch" type="xml">
+      <list string="Contratos">
+        <field name="name" />
+        <field name="dFechaInicio" />
+        <field name="dFechaFin" />
+        <field name="bActivo" />
+        <field name="fSalarioBase" />
+        <field name="tipo_contrato_id" widget="many2one" />
+        <field name="empleado_id" widget="many2one" />
+      </list>
+    </field>
+  </record>
+
+  <record id="contrato_calendar_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.contrato.calendar</field>
+    <field name="model">rrhh_upo.contrato</field>
+    <field name="arch" type="xml">
+      <calendar string="Contratos" color="tipo_contrato_id" date_start="dFechaInicio" date_stop="dFechaFin" mode="month">
+        <field name="name" />
+        <field name="fSalarioBase" />
+      </calendar>
+    </field>
+  </record>
+
+
+  <record id="contrato_list_action" model="ir.actions.act_window">
+    <field name="name">Contrato</field>
+    <field name="res_model">rrhh_upo.contrato</field>
+    
+    <field name="view_mode">list,form,calendar</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Añade el primer contrato</p>
+    </field>
+  </record>
+</odoo>

@@ -1,71 +1,55 @@
+# -*- coding: utf-8 -*-
+
 from odoo import models, fields, api
-from odoo.exceptions import ValidationError
+
 
 class TipoConcepto(models.Model):
     _name = 'rrhh_upo.tipo_concepto'
     _description = 'Tipo de concepto'
-    #Con este ajuste le indico a Odoo que nombre quiero que muestre en los registros.
-    _rec_name = 'sNombre'
+    _rec_name = 'name'
 
-    #Relaciones de tipo de concepto
-
-    #Según los apuntes esta relación es opcional, pero la he querido reflejar. Solo funciona si existe concepto.
-    o2mConceptos = fields.One2many('rrhh_upo.concepto', 'm2oTipoConcepto', string='Conceptos')
-
-    #Declaración de los campos y validaciones básicas:
-
-    #Validación: El usuario debe escribir texto, es obligatorio.
-    sCodigo = fields.Char(string='Código', required=True)
-
-    #Validación: El usuario debe escribir un número decimal entre 0 y 100. Por defecto viene en 0.
-    fPorcentaje = fields.Float(string='Porcentaje (%)', digits=(5, 2), default=0.0)
-
-    #Validación: El usuario debe escribir texto, es obligatorio rellenarlo.
-    sNombre = fields.Char(string='Nombre', required=True)
-
-    #Validación: El usuario debe escribir texto y es opcional.
-    sDescripcion = fields.Text(string='Descripción')
-
-    #Validación: Solo admite booleanos True = deducción (resta) y False = no es deducción (suma). Por defecto False.
+    name = fields.Char(string='Código', size=10,required=True, help = 'Introduce el código para identificar el concepto')
+    fPorcentaje = fields.Float(string='Porcentaje', default=0.0)
+    sNombre = fields.Char(string='Nombre', size=30, required=True, help = 'Introduce el nombre del concepto')
+    sDescripcion = fields.Text()
+    #True = deducción (resta) y False = no es deducción (suma). Por defecto False
     bEsDeduccion = fields.Boolean(string='Es deducción', default=False)
+
+
+    concepto_ids = fields.One2many('rrhh_upo.concepto', 'tipo_concepto_id','Conceptos')
     
-    #Metodos con validaciones:
+    _sql_constraints = [('codigo_unico', 'UNIQUE(name)','Ya existe un tipo de concepto con ese código')]
 
-    #Validación: Valido tanto que no este en blanco, como su longidud y duplicado.
-    @api.constrains('sCodigo')
+    #Validación: Valido tanto que no este en blanco el código
+    @api.constrains('name')
     def validar_codigo(self):
-        for puntero in self:
-            codigo = puntero.sCodigo.strip()
-            if not codigo:
-                raise ValidationError('El código no puede estar en blanco')
-            if len(codigo) > 10:
-                raise ValidationError('El código no puede superar los 10 caracteres')
-            codigo_repe = self.search_count([
-                ('id', '!=', puntero.id),
-                ('sCodigo', '=ilike', codigo),
-            ])
-            if codigo_repe:
-                raise ValidationError('Ya existe un tipo de concepto con el mismo código')
+        for record in self:
+            if not record.name.strip():
+                raise models.ValidationError('El código no puede estar en blanco')
+            
 
-    #Validación: Valido tanto que no este en blanco, como su longidud y duplicado.
+    #Validación: Valido tanto que no este en blanco el nombre
     @api.constrains('sNombre')
     def validar_nombre(self):
-        for puntero in self:
-            nombre = puntero.sNombre.strip()
+        for record in self:
+            nombre = record.sNombre.strip()
             if not nombre:
-                raise ValidationError('El nombre no puede estar en blanco')
-            if len(nombre) > 35:
-                raise ValidationError('El nombre no puede superar los 35 caracteres')
-            nombre_repe = self.search_count([
-                ('id', '!=', puntero.id),
-                ('sNombre', '=ilike', nombre),
-            ])
-            if nombre_repe:
-                raise ValidationError('Ya existe un tipo de concepto con el mismo nombre')
+                raise models.ValidationError('El nombre no puede estar en blanco')
             
-    #Validación: El porcentaje debe estar entre 0 y 100.
+            
+    #Validación: El porcentaje debe estar entre 0 y 100
     @api.constrains('fPorcentaje')
     def validar_porcentaje(self):
-        for puntero in self:
-            if not 0 <= puntero.fPorcentaje <= 100:
-                raise ValidationError('El porcentaje debe estar entre 0 y 100')
+        for record in self:
+            if not 0 <= record.fPorcentaje <= 100:
+                raise models.ValidationError('El porcentaje debe estar entre 0 y 100')
+
+    #Aviso al usuario si mete un porcentaje mayor que 0
+    @api.onchange('fPorcentaje')
+    def onchange_porcentaje(self):
+        if self.fPorcentaje > 0:
+            return {
+            'warning': {'title': 'Tipo porcentual','message': 'Este concepto se calculará mediante porcentaje.'}
+        }
+
+    

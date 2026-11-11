@@ -1,0 +1,61 @@
+<odoo>
+  <record id="tipo_concepto_form_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.tipo_concepto.form</field>
+    <field name="model">rrhh_upo.tipo_concepto</field>
+    <field name="arch" type="xml">
+      <form string="Tipo de Concepto">
+        <sheet layout="auto">
+          <group>
+            <field name="name" />
+            <field name="sNombre" />
+            <field name="fPorcentaje" />
+            <field name="sDescripcion" />
+            <field name="bEsDeduccion" />
+            <field name="concepto_ids" widget="one2many" />
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="tipo_concepto_list_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.tipo_concepto.list</field>
+    <field name="model">rrhh_upo.tipo_concepto</field>
+    <field name="arch" type="xml">
+      <list string="Tipos de concepto">
+        <field name="name" />
+        <field name="sNombre" />
+        <field name="fPorcentaje" />
+        <field name="sDescripcion" />
+        <field name="bEsDeduccion" />
+      </list>
+    </field>
+  </record>
+
+<record id="tipo_concepto_search_view" model="ir.ui.view">
+    <field name="name">rrhh_upo.tipo_concepto.search</field>
+    <field name="model">rrhh_upo.tipo_concepto</field>
+    <field name="arch" type="xml">
+      <search>
+        <field name="sNombre" />
+        <filter name="filtro_deducciones" string="Deducciones" domain="[('bEsDeduccion','=',True)]" />
+        <filter name="filtro_porcentuales" string="Se calculan por porcentaje" domain="[('fPorcentaje','&gt;',0)]" />
+        <filter name="filtro_con_conceptos" string="Con conceptos" domain="[('concepto_ids','!=',False)]" />
+        <group expand="0" string="Agrupar por...">
+            <filter name="group_by_deduccion" string="Es deducción" context="{'group_by':'bEsDeduccion'}" />
+        </group>
+      </search>
+    </field>
+</record>
+
+
+  <record id="tipo_concepto_list_action" model="ir.actions.act_window">
+    <field name="name">Tipo de concepto</field>
+    <field name="res_model">rrhh_upo.tipo_concepto</field>
+    <field name="search_view_id" ref="tipo_concepto_search_view" />
+    <field name="view_mode">list,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">Añade el primer tipo de concepto</p>
+    </field>
+  </record>
+</odoo>

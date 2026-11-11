@@ -1,0 +1,81 @@
+
+<odoo>
+    <record id='rrhh_upo_usuario_form_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.usuario.form</field>
+        <field name='model'>rrhh_upo.usuario</field>
+        <field name='arch' type='xml'>
+            <form string='Usuario del Sistema'>
+                <sheet layout='auto'>
+                    <group>
+                        <field name='imFotoPerfil' widget='image' class='oe_avatar' options="{'zoom': True, 'preview_image': 'imFotoPerfil'}"/>
+                    </group>
+
+                    <group>
+                        <group string='Credenciales'>
+                            <field name='persona_id' widget='many2one'/>
+                            <field name='sUsername'/>
+                            <field name='sEmailCorporativo'/>
+                            <field name='active'/>
+                        </group>
+
+                        <group string='Seguridad'>
+                            <field name='sPwdEntrada' widget='password'/>
+                            <field name='sPwdHash' invisible='1'/>
+                            <field name='sPwdSalt' invisible='1'/>
+                        </group>
+                    </group>
+
+                    <group string='Permisos del Sistema'>
+                        <field name='rol_ids' widget='many2many'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_usuario_list_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.usuario.list</field>
+        <field name='model'>rrhh_upo.usuario</field>
+        <field name='arch' type='xml'>
+            <tree string='Usuarios'>
+                <field name='sUsername'/>
+                <field name='sEmailCorporativo'/>
+                <field name='persona_id' widget='many2one'/>
+                <field name='rol_ids' widget='many2many'/>
+                <field name='active'/>
+            </tree>
+        </field>
+    </record>
+
+    <record id='rrhh_upo_usuario_search_view' model='ir.ui.view'>
+        <field name='name'>rrhh_upo.usuario.search</field>
+        <field name='model'>rrhh_upo.usuario</field>
+        <field name='arch' type='xml'>
+            <search string='Buscar Usuario'>
+                <filter name='search_active' string='Solo Usuarios Activos' domain="[('active', '=', True)]"/>
+
+                <separator/>
+                <filter name='search_inactive' string='Solo Usuarios Inactivos' domain="[('active', '=', False)]"/>
+
+                <separator/>
+                <field name='sEmailCorporativo'/>
+                <field name='rol_ids'/>
+
+                <separator orientation='vertical'/>
+                <group expand='0' string='Agrupar Por'>
+                    <filter name='group_active' string='Estado de Cuenta' context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='usuario_list_action' model='ir.actions.act_window'>
+        <field name='name'>Usuarios del Sistema</field>
+        <field name='res_model'>rrhh_upo.usuario</field>
+        <field name='view_mode'>form,tree</field>
+        <field name='search_view_id' ref='rrhh_upo_usuario_search_view'/>
+        <field name='help' type='html'>
+            <p class='o_view_nocontent_smiling_face'>Crea el primer Usuario</p>
+        </field>
+    </record>
+</odoo>

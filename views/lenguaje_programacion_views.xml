@@ -1,0 +1,75 @@
+<odoo>
+    <record id="rrhh_upo_lenguaje_programacion_kanban_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.lenguaje_programacion.kanban</field>
+        <field name="model">rrhh_upo.lenguaje_programacion</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="proposito">
+                <field name="proposito"/>
+                <templates>
+                    <t t-name="card">
+                        <field name="name" class="fw-bold fs-5"/>
+                        <field name="requisito_ids" widget="many2many_tags"/>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    
+    <record id="rrhh_upo_lenguaje_programacion_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.lenguaje_programacion.form</field>
+        <field name="model">rrhh_upo.lenguaje_programacion</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <field name="proposito" widget="selection_badge"/>
+                    </group>
+                    <notebook>
+                        <page string="Usado en requisitos" name="requisitos">
+                            <field name="requisito_ids" widget="many2many_tags" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<record id="rrhh_upo_lenguaje_programacion_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.lenguaje_programacion.list</field>
+        <field name="model">rrhh_upo.lenguaje_programacion</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="proposito" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+
+    <record id="rrhh_upo_lenguaje_programacion_search_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.lenguaje_programacion.search</field>
+        <field name="model">rrhh_upo.lenguaje_programacion</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <group expand="0" string="Agrupar por ...">
+                    <filter name="group_by_proposito" string="Propósito" context="{'group_by': 'proposito'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="lenguaje_programacion_list_action" model="ir.actions.act_window">
+        <field name="name">Lenguajes de programación</field>
+        <field name="res_model">rrhh_upo.lenguaje_programacion</field>
+        <field name='search_view_id' ref='rrhh_upo_lenguaje_programacion_search_view'/>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create the first lenguaje de programación</p>
+        </field>
+    </record>
+</odoo>

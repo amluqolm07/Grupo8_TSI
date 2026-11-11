@@ -14,7 +14,7 @@ class Contrato(models.Model):
     #Según los apuntes esta relación es opcional, pero la he querido reflejar.
     o2mNominas = fields.One2many('rrhh_upo.nomina', 'm2oContrato', string='Nóminas')
     #Un contrato nace de una solicitud. No se puede borrar una solicitud que ya ha generado un contrato por eso tenemos ondelete='restrict' .
-    m2oSolicitud = fields.Many2one('rrhh_upo.solicitud', string='Solicitud', required=True, index=True, ondelete='restrict')
+    solicitud_id = fields.Many2one('rrhh_upo.solicitud', string='Solicitud', required=True, index=True, ondelete='restrict')
 
     #Declaración de los campos y validaciones básicas:
 

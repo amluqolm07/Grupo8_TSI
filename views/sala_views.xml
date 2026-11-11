@@ -5,12 +5,22 @@
         <field name="arch" type="xml">
             <form string="Sala">
                 <sheet>
-                    <group>
+                    <group col="4">
                         <field name="name"/>
                         <field name="iNumero"/>
                         <field name="iPlanta"/>
+                        <field name="tipo_sala_id"/>
+                        <field name="edificio_id"/>
                         <field name="iAforo"/>
                         <field name="sEstado"/>
+                        <field name="fSuperficie"/>
+                        <field name="fAltura"/>
+                        <field name="fDimensiones"/>
+                        <field name="fHora_apertura"/>
+                        <field name="fHora_cierre"/>
+                        <field name="cita_id"/>
+                        <field name="entrevista_id"/>
+                        <field name="sesion_id"/>
                     </group>
                 </sheet>
             </form>
@@ -25,7 +35,11 @@
                 <field name="name"/>
                 <field name="iNumero"/>
                 <field name="iPlanta"/>
+                <field name="tipo_sala_id"/>
+                <field name="edificio_id"/>
                 <field name="iAforo"/>
+                <field name="fSuperficie"/>
+                <field name="fDimensiones"/>
                 <field name="sEstado"/>
             </list>
         </field>

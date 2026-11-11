@@ -1,24 +1,30 @@
 <odoo>
-    <!-- Vista Form -->
+    <!--FORM-->
     <record id="cita_form_view" model="ir.ui.view">
         <field name="name">rrhh_upo.cita.form</field>
         <field name="model">rrhh_upo.cita</field>
         <field name="arch" type="xml">
             <form string="Cita">
                 <sheet>
-                    <group>
+                    <group col="4">
                         <field name="name"/>
+                        <field name="sEstado"/>
                         <field name="dFecha_hora_cita"/>
                         <field name="fDuracion"/>
+                        <field name="dFecha_hora_fin"/>
+                        <field name="dFecha_hora_agendada"/>
+                        <field name="tipo_cita_id"/>
+                        <field name="sala_id"/>
+                        <field name="sMedio_concertada"/>
                         <field name="sMotivo"/>
-                        <field name="sEstado"/>
+                        <field name="sConclusion"/>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <!-- Vista List (Tree) -->
+    <!--LIST-->
     <record id="cita_list_view" model="ir.ui.view">
         <field name="name">rrhh_upo.cita.list</field>
         <field name="model">rrhh_upo.cita</field>
@@ -27,12 +33,14 @@
                 <field name="name"/>
                 <field name="dFecha_hora_cita"/>
                 <field name="fDuracion"/>
+                <field name="dFecha_hora_fin"/>
+                <field name="sala_id"/>
                 <field name="sEstado"/>
             </list>
         </field>
     </record>
 
-    <!--Calendar-->
+    <!--CALENDARIO-->
     <record id="cita_calendar_view" model="ir.ui.view">
         <field name="name">rrhh_upo.cita.calendar</field>
         <field name="model">rrhh_upo.cita</field>
@@ -40,11 +48,12 @@
             <calendar string="Calendario de Citas" date_start="dFecha_hora_cita" color="sEstado" mode="month">
                 <field name="name"/>
                 <field name="sMotivo"/>
+                <field name="sala_id"/>
             </calendar>
         </field>
     </record>
 
-    <!--Search-->
+    <!--SEARCH_VIEW-->
     <record id="cita_search_view" model="ir.ui.view">
         <field name="name">rrhh_upo.cita.search</field>
         <field name="model">rrhh_upo.cita</field>
@@ -52,16 +61,20 @@
             <search string="Buscar Citas">
                 <field name="name"/>
                 <field name="sMotivo"/>
+                <field name="sala_id"/>
                 <separator/>
                 <filter name="estado_pendiente" string="Pendientes" domain="[('sEstado', '=', 'pendiente')]"/>
+                <filter name="estado_finalizada" string="Finalizadas" domain="[('sEstado', '=', 'finalizada')]"/>
                 <group expand="0" string="Agrupar por">
                     <filter name="group_by_estado" string="Estado" context="{'group_by': 'sEstado'}"/>
+                    <filter name="group_by_sala" string="Sala" context="{'group_by': 'sala_id'}"/>
+                    <filter name="group_by_tipo" string="Tipo de Cita" context="{'group_by': 'tipo_cita_id'}"/>
                 </group>
             </search>
         </field>
     </record>
 
-    <!-- Acción de Ventana enlazando la vista search -->
+
     <record id="action_rrhh_upo_cita" model="ir.actions.act_window">
         <field name="name">Citas</field>
         <field name="res_model">rrhh_upo.cita</field>

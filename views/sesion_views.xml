@@ -7,9 +7,13 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="sEstado"/>
                         <field name="dFecha_hora_inicio"/>
                         <field name="fDuracion"/>
-                        <field name="sEstado"/>
+                        <field name="dFecha_hora_final"/>
+                        <field name="iAsistentes_previstos"/>
+                        <field name="iAsistentes_reales"/>
+                        <field name="sala_id"/>
                     </group>
                 </sheet>
             </form>
@@ -24,6 +28,8 @@
                 <field name="name"/>
                 <field name="dFecha_hora_inicio"/>
                 <field name="fDuracion"/>
+                <field name="sala_id"/>
+                <field name="iAsistentes_reales"/>
                 <field name="sEstado"/>
             </list>
         </field>
@@ -34,8 +40,10 @@
         <field name="name">rrhh_upo.sesion.calendar</field>
         <field name="model">rrhh_upo.sesion</field>
         <field name="arch" type="xml">
-            <calendar string="Calendario de Sesiones" date_start="dFecha_hora_inicio" color="sEstado" mode="month">
+            <calendar string="Calendario de Sesiones" date_start="dFecha_hora_inicio" date_stop="dFecha_hora_final" color="sEstado" mode="month">
                 <field name="name"/>
+                <field name="sala_id"/>
+                <field name="sEstado"/>
             </calendar>
         </field>
     </record>

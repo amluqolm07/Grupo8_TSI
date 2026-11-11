@@ -7,10 +7,23 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="sResultado"/>
                         <field name="dFecha_hora_inicio"/>
                         <field name="fDuracion"/>
-                        <field name="sResultado"/>
+                        <field name="dFecha_hora_fin"/>
+                        <field name="dFecha_hora_agendada"/>
                     </group>
+                    <notebook>
+                        <page string="Detalles y Notas">
+                            <group>
+                                <field name="tipo_entrevista_id"/>
+                                <field name="sala_id"/>
+                                <field name="solicitud_id"/>
+                                <field name="sInformación_previa"/>
+                                <field name="sApuntes"/>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -24,6 +37,8 @@
                 <field name="name"/>
                 <field name="dFecha_hora_inicio"/>
                 <field name="fDuracion"/>
+                <field name="dFecha_hora_fin"/>
+                <field name="sala_id"/>
                 <field name="sResultado"/>
             </list>
         </field>
@@ -36,6 +51,8 @@
         <field name="arch" type="xml">
             <calendar string="Calendario de Entrevistas" date_start="dFecha_hora_inicio" color="sResultado" mode="month">
                 <field name="name"/>
+                <field name="sala_id"/>
+                <field name="sResultado"/>
             </calendar>
         </field>
     </record>

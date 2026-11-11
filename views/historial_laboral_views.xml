@@ -7,10 +7,14 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="empleado_id"/>
+                        <field name="sPuesto"/>
+                        <field name="sRol"/>
                         <field name="dFecha_inicio"/>
                         <field name="dFecha_fin"/>
-                        <field name="sPuesto"/>
+                        <field name="iDias_en_puesto"/>
                         <field name="fSueldo"/>
+                        <field name="sMotivo_cambio"/>
                     </group>
                 </sheet>
             </form>
@@ -23,8 +27,11 @@
         <field name="arch" type="xml">
             <list string="Historial Laboral">
                 <field name="name"/>
-                <field name="dFecha_inicio"/>
+                <field name="empleado_id"/>
                 <field name="sPuesto"/>
+                <field name="dFecha_inicio"/>
+                <field name="dFecha_fin"/>
+                <field name="iDias_en_puesto"/>
                 <field name="fSueldo"/>
             </list>
         </field>

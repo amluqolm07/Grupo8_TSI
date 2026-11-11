@@ -12,7 +12,7 @@ class Asignaturas(models.Model):
     curso = fields.Integer('Curso', required=True)
     tipo = fields.Selection([('obligatoria', 'Obligatoria'), 
                              ('optativa', 'Optativa'),
-                             ('basica', 'Basica')], required=True)
+                             ('basica', 'Basica')], 'Tipo de asignatura',required=True)
     nombre = fields.Char('Nombre', required=True)
     cuatrimestre = fields.Selection([('1', 'Primer cuatrimestre'), 
                                    ('2', 'Segundo cuatrimestre'),

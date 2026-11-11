@@ -13,7 +13,7 @@ class Grado(models.Model):
                              ('ciencias', 'Ciencias'),
                              ('humanidades', 'Humanidades'),
                              ('salud', 'Salud'),
-                             ('sociales', 'Sociales')], required=True)
+                             ('sociales', 'Sociales')], 'Rama de estudio',required=True)
     
     
     

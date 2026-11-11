@@ -11,7 +11,7 @@ class Matricula(models.Model):
     fecha_matricula = fields.Date('Fecha de matrícula', required=True)
     estado = fields.Selection([('pendiente', 'Pendiente'),
                                ('pagado', 'Pagado'),
-                                ('anulada', 'Anulada')], required=True)
+                                ('anulada', 'Anulada')], 'Estado de la matrícula', required=True)
     # Añadir creditos matriculados que es un atributo calculado que suma los creditos de las asignaturas matriculadas
     
     

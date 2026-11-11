@@ -10,8 +10,7 @@ class Investigacion(models.Model):
     name = fields.Char(string='Nombre', help = "Nombre de la investigación", required=True)
     fecha_inicio = fields.Date('Fecha de inicio', required=True)
     fecha_fin = fields.Date('Fecha de fin')
-    estado = fields.Selection([('en_proceso', 'En proceso'),
-                            ('finalizado', 'Finalizado')], required=True)
+    estado = fields.Boolean('En proceso', required=True)
     descripcion = fields.Text()
     # añadir financiacion total, suma de todas las financiaciones
     

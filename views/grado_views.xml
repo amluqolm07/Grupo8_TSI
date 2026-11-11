@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Grado List View -->
+    <record id="rrhh_upo_grado_list_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.grado.list</field>
+        <field name="model">rrhh_upo.grado</field>
+        <field name="arch" type="xml">
+            <list string="list_string">
+                <field name="name"/>
+                <field name="nombre"/>
+                <field name="rama"/>
+            </list>
+        </field>
+    </record>
+
+
+    <!-- Grado Form View -->
+    <record id="rrhh_upo_grado_form_view" model="ir.ui.view">
+        <field name="name">rrhh_upo.grado.form</field>
+        <field name="model">rrhh_upo.grado</field>
+        <field name="arch" type="xml">
+            <form string="form_string">
+                <sheet layout="auto">
+                    <group>
+                        <field name="name" placeholder="XXXXXXX"/>
+                    </group>
+                    <notebook>
+                        <page name="Datos_grado" string="Datos del grado">
+                            <group>
+                                <field name="nombre" placeholder="Grado en Ingeniería"/>
+                                <field name="rama"/>
+                            </group>
+                        </page>
+                        <!-- <page name="PDI" string="PDI del grado">
+                            <group>
+                                <field name="pdi_ids" widget="many2many_tags"/>
+                            </group>
+                        </page> -->
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="grado_list_action" model="ir.actions.act_window">
+        <field name="name">Grados</field>
+        <field name="res_model">rrhh_upo.grado</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face"> Añade el primer grado </p>
+        </field>
+    </record>
+</odoo>

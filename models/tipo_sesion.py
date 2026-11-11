@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 class Tipo_sesion(models.Model):
 
-    _name = 'rrhh.upo.tipo.sesion'
+    _name = 'rrhh_upo.tipo_sesion'
     _description = 'Tipo de la sesion'
 
     name = fields.Char(string='Nombre',required=True,size = 20, help='Rellene el nombre del tipo de sesion')

@@ -13,3 +13,6 @@ class Expediente(models.Model):
     # creditos matriculados atributo derivado
     
     grado_id = fields.Many2one('rrhh_upo.grado', string='Grado', required=True)
+    # tipo_matricula_id = fields.Many2one('rrhh_upo.tipo_matricula', string='Tipo de matrícula', required=True)
+    
+    matricula_ids = fields.One2many('rrhh_upo.matricula', 'expediente_id', 'Matrículas del expediente')

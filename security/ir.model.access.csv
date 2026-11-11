@@ -1,4 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+lenguaje_programacion_manager,lenguaje_programacion_manager,model_rrhh_upo_lenguaje_programacion,group_rrhh_upo_manager,1,1,1,1
+material_manager,material_manager,model_rrhh_upo_material,group_rrhh_upo_manager,1,1,1,1
+titulo_idioma_manager,titulo_idioma_manager,model_rrhh_upo_titulo_idioma,group_rrhh_upo_manager,1,1,1,1
+requisito_manager,requisito_manager,model_rrhh_upo_requisito,group_rrhh_upo_manager,1,1,1,1
 asignatura_manager,asignatura_manager,model_rrhh_upo_asignatura,group_rrhh_upo_manager,1,1,1,1
 departamento_manager,departamento_manager,model_rrhh_upo_departamento,group_rrhh_upo_manager,1,1,1,1
 equipo_investigacion_manager,equipo_investigacion_manager,model_rrhh_upo_equipo_investigacion,group_rrhh_upo_manager,1,1,1,1

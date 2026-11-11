@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "RRHH_UPO",
+    'name': "RRHH UPO",
 
     'summary': "Gestion del modulo de Recursos Humanos para la UPO",
 

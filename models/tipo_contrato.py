@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-
+###
 
 class TipoContrato(models.Model):
     _name = 'rrhh_upo.tipo_contrato'
